@@ -11,15 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SCXLinkList<ObjectType> : NSObject
-- (void)addToHead:(ObjectType)object;
-- (void)addToTail:(ObjectType)object;
+- (ObjectType)addToHead:(ObjectType)object;
+- (ObjectType)addToTail:(ObjectType)object;
 - (ObjectType)removeObjectAtIndex:(NSInteger)index;
 - (ObjectType)objectAtIndex:(NSInteger)index;
 - (ObjectType)removeFirstObject;
 - (ObjectType)removeLastObject;
-- (void)addObject:(ObjectType)object atIndex:(NSInteger)index;
-- (void)updateObject:(ObjectType)object atIndex:(NSInteger)index;
+- (ObjectType)addObject:(ObjectType)object atIndex:(NSInteger)index;
+- (ObjectType)setObject:(ObjectType)object atIndex:(NSInteger)index;
 - (BOOL)containObject:(ObjectType)object;
+- (NSInteger)indexOfObject:(ObjectType)object;
+- (void)clear;
 @property (nonatomic,strong,readonly)ObjectType firstObject;
 @property (nonatomic,strong,readonly)ObjectType lastObject;
 
