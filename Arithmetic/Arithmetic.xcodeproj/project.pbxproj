@@ -16,6 +16,7 @@
 		E857C44D241A0AC6002C108B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C44C241A0AC6002C108B /* main.m */; };
 		E857C457241A0AC6002C108B /* ArithmeticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C456241A0AC6002C108B /* ArithmeticTests.m */; };
 		E857C462241A0AC6002C108B /* ArithmeticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C461241A0AC6002C108B /* ArithmeticUITests.m */; };
+		E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8676CC0241A35980065C9E6 /* SCXLinkList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		E857C45D241A0AC6002C108B /* ArithmeticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArithmeticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E857C461241A0AC6002C108B /* ArithmeticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArithmeticUITests.m; sourceTree = "<group>"; };
 		E857C463241A0AC6002C108B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8676CBF241A35980065C9E6 /* SCXLinkList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXLinkList.h; sourceTree = "<group>"; };
+		E8676CC0241A35980065C9E6 /* SCXLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLinkList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 		E857C439241A0AC3002C108B /* Arithmetic */ = {
 			isa = PBXGroup;
 			children = (
+				E8676CBE241A356F0065C9E6 /* 单向链表 */,
 				E857C43A241A0AC3002C108B /* AppDelegate.h */,
 				E857C43B241A0AC3002C108B /* AppDelegate.m */,
 				E857C43D241A0AC3002C108B /* SceneDelegate.h */,
@@ -135,6 +139,15 @@
 				E857C463241A0AC6002C108B /* Info.plist */,
 			);
 			path = ArithmeticUITests;
+			sourceTree = "<group>";
+		};
+		E8676CBE241A356F0065C9E6 /* 单向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				E8676CBF241A35980065C9E6 /* SCXLinkList.h */,
+				E8676CC0241A35980065C9E6 /* SCXLinkList.m */,
+			);
+			path = "单向链表";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E857C442241A0AC3002C108B /* ViewController.m in Sources */,
+				E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */,
 				E857C43C241A0AC3002C108B /* AppDelegate.m in Sources */,
 				E857C44D241A0AC6002C108B /* main.m in Sources */,
 				E857C43F241A0AC3002C108B /* SceneDelegate.m in Sources */,
