@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (ObjectType)removeLastObject;
 - (ObjectType)addObject:(ObjectType)object atIndex:(NSInteger)index;
 - (ObjectType)setObject:(ObjectType)object atIndex:(NSInteger)index;
+- (void)deleteObject:(ObjectType)object;
 - (BOOL)containObject:(ObjectType)object;
 - (NSInteger)indexOfObject:(ObjectType)object;
 - (void)clear;

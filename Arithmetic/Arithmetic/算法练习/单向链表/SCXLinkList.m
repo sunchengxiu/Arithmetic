@@ -90,6 +90,22 @@ typedef struct ListNode{
         return (__bridge id _Nonnull)cur->data;
     }
 }
+-(void)deleteObject:(id)object{
+    if (!object) {
+        return;
+    }
+    Node *cur = _head;
+    // 删除节点的原理就是，将当前节点的值被覆盖为下一个节点的值，然后将当前节点和下一个节点保证一样，然后将当前节点指向当前节点的下一个节点的下一个。
+    while (cur->next !=nil) {
+        id data = (__bridge id)(cur->data);
+        if ([data isEqual:object]) {
+            cur->data = cur->next->data;
+            cur->next = cur->next->next;
+            break;
+        }
+        cur = cur->next;
+    }
+}
 -(BOOL)containObject:(id)object{
     BOOL has = NO;
     Node *cur = _head;

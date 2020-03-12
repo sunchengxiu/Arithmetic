@@ -17,6 +17,7 @@
 		E857C457241A0AC6002C108B /* ArithmeticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C456241A0AC6002C108B /* ArithmeticTests.m */; };
 		E857C462241A0AC6002C108B /* ArithmeticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C461241A0AC6002C108B /* ArithmeticUITests.m */; };
 		E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8676CC0241A35980065C9E6 /* SCXLinkList.m */; };
+		E87C825F241A74E3008041A9 /* SCXDeleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E87C825E241A74E3008041A9 /* SCXDeleNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		E857C463241A0AC6002C108B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8676CBF241A35980065C9E6 /* SCXLinkList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXLinkList.h; sourceTree = "<group>"; };
 		E8676CC0241A35980065C9E6 /* SCXLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLinkList.m; sourceTree = "<group>"; };
+		E87C825D241A74E3008041A9 /* SCXDeleNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXDeleNode.h; sourceTree = "<group>"; };
+		E87C825E241A74E3008041A9 /* SCXDeleNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXDeleNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +110,8 @@
 		E857C439241A0AC3002C108B /* Arithmetic */ = {
 			isa = PBXGroup;
 			children = (
-				E8676CBE241A356F0065C9E6 /* 单向链表 */,
+				E87C825A241A748A008041A9 /* LeetCode */,
+				E87C8259241A7480008041A9 /* 算法练习 */,
 				E857C43A241A0AC3002C108B /* AppDelegate.h */,
 				E857C43B241A0AC3002C108B /* AppDelegate.m */,
 				E857C43D241A0AC3002C108B /* SceneDelegate.h */,
@@ -148,6 +152,39 @@
 				E8676CC0241A35980065C9E6 /* SCXLinkList.m */,
 			);
 			path = "单向链表";
+			sourceTree = "<group>";
+		};
+		E87C8259241A7480008041A9 /* 算法练习 */ = {
+			isa = PBXGroup;
+			children = (
+				E8676CBE241A356F0065C9E6 /* 单向链表 */,
+			);
+			path = "算法练习";
+			sourceTree = "<group>";
+		};
+		E87C825A241A748A008041A9 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				E87C825B241A7490008041A9 /* 链表 */,
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		E87C825B241A7490008041A9 /* 链表 */ = {
+			isa = PBXGroup;
+			children = (
+				E87C825C241A749D008041A9 /* 237删除链表中的节点 */,
+			);
+			path = "链表";
+			sourceTree = "<group>";
+		};
+		E87C825C241A749D008041A9 /* 237删除链表中的节点 */ = {
+			isa = PBXGroup;
+			children = (
+				E87C825D241A74E3008041A9 /* SCXDeleNode.h */,
+				E87C825E241A74E3008041A9 /* SCXDeleNode.m */,
+			);
+			path = "237删除链表中的节点";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87C825F241A74E3008041A9 /* SCXDeleNode.m in Sources */,
 				E857C442241A0AC3002C108B /* ViewController.m in Sources */,
 				E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */,
 				E857C43C241A0AC3002C108B /* AppDelegate.m in Sources */,

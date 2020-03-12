@@ -25,6 +25,7 @@
     [list addObject:@"6" atIndex:5];
     [list removeFirstObject];
     [list removeLastObject];
+    [list deleteObject:@"5"];
     NSLog(@"%d",[list containObject:@"2"]);
     NSLog(@"%d",[list containObject:@"6"]);
     NSLog(@"%ld",[list indexOfObject:@"6"]);
