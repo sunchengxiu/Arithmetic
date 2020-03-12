@@ -81,13 +81,19 @@ typedef struct ListNode{
          Node *preNode = _head;
         _head = _head->next;
         _size --;
-        return (__bridge id _Nonnull)preNode->data;
+        id data = (__bridge id _Nonnull)preNode->data;
+        free(preNode);
+        preNode = NULL;
+        return data;
     } else {
         Node *preNode = [self nodeAtIndex:index - 1];
         Node *cur = preNode->next;
+        id data = (__bridge id _Nonnull)cur->data;
         preNode->next = preNode->next->next;
         _size--;
-        return (__bridge id _Nonnull)cur->data;
+        free(cur);
+        cur = NULL;
+        return data;
     }
 }
 -(void)deleteObject:(id)object{
@@ -99,8 +105,13 @@ typedef struct ListNode{
     while (cur->next !=nil) {
         id data = (__bridge id)(cur->data);
         if ([data isEqual:object]) {
-            cur->data = cur->next->data;
-            cur->next = cur->next->next;
+//            cur->data = cur->next->data;
+//            cur->next = cur->next->next;
+            Node *node = cur->next;
+            *cur = *(cur->next);
+            free(node);
+            node = NULL;
+            _size --;
             break;
         }
         cur = cur->next;
