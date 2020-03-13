@@ -31,6 +31,8 @@
 //    NSLog(@"%d",[list containObject:@"6"]);
 //    NSLog(@"%ld",[list indexOfObject:@"6"]);
     NSLog(@"%@",list);
+    [list clear];
+    NSLog(@"%@",list);
 }
 
 @end

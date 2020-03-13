@@ -22,7 +22,7 @@ typedef struct ListNode{
         _head = (Node *)malloc(sizeof(Node));
         _size = 0;
         _head->data = nil;
-        _head->next = nil;
+        _head->next = NULL;
     }
     return self;
 }
@@ -68,7 +68,7 @@ typedef struct ListNode{
     return (__bridge id _Nonnull)(node->data);
 }
 -(id)removeLastObject{
-    return [self removeObjectAtIndex:_size];
+    return [self removeObjectAtIndex:_size-1];
 }
 -(id)removeFirstObject{
     return [self removeObjectAtIndex:0];
@@ -78,6 +78,7 @@ typedef struct ListNode{
         return nil;
     }
     if(index == 0){
+         NSLog(@"%@",self);
          Node *preNode = _head;
         _head = _head->next;
         _size --;
@@ -86,6 +87,7 @@ typedef struct ListNode{
         preNode = NULL;
         return data;
     } else {
+        NSLog(@"%@",self);
         Node *preNode = [self nodeAtIndex:index - 1];
         Node *cur = preNode->next;
         id data = (__bridge id _Nonnull)cur->data;
@@ -101,8 +103,7 @@ typedef struct ListNode{
         return;
     }
     Node *cur = _head;
-    // 删除节点的原理就是，将当前节点的值被覆盖为下一个节点的值，然后将当前节点和下一个节点保证一样，然后将当前节点指向当前节点的下一个节点的下一个。
-    while (cur->next !=nil) {
+    while (cur->next != NULL) {
         id data = (__bridge id)(cur->data);
         if ([data isEqual:object]) {
 //            cur->data = cur->next->data;
@@ -120,7 +121,7 @@ typedef struct ListNode{
 -(BOOL)containObject:(id)object{
     BOOL has = NO;
     Node *cur = _head;
-    while (cur->next != nil) {
+    while (cur->next != NULL) {
         id data = (__bridge id)(cur->data);
         if ([data isEqual:object]) {
             return YES;
@@ -131,7 +132,7 @@ typedef struct ListNode{
 }
 - (Node *)nodeAtIndex:(NSInteger)index{
     if (![self enable:index]) {
-        return nil;
+        return NULL;
     }
     Node *node = _head;
     for (NSInteger i = 0 ; i < index; i ++) {
@@ -140,7 +141,6 @@ typedef struct ListNode{
     return node;
 }
 -(NSInteger)indexOfObject:(id)object{
-    Node *cur = _head;
     NSInteger index = -1;
     for (NSInteger i = 0 ; i < _size; i ++) {
         Node *node = [self nodeAtIndex:i];
@@ -158,13 +158,20 @@ typedef struct ListNode{
     return YES;
 }
 - (void)clear{
+    Node *cur = _head;
+    while (cur->next != NULL) {
+        Node *pre = cur;
+        cur = cur->next;
+        free(pre);
+        pre = NULL;
+    }
     _size = 0;
-    _head = nil;
+    _head = NULL;
 }
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];
     Node *cur = _head;
-    while (cur->next != nil) {
+    while (cur && cur->next != NULL) {
         [str appendFormat:@"%@,",cur->data];
         cur = cur->next;
     }
