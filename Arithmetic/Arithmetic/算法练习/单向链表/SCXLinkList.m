@@ -192,6 +192,21 @@ typedef struct ListNode{
     pre = head;
     return [self reverse:pre cur:cur];
 }
+-(BOOL)hasCircle{
+    if (_head == NULL || _head->next == NULL) {
+        return false;
+    }
+    Node *slow = _head;
+    Node *fast = _head->next;
+    while (fast != NULL && fast->next != NULL) {
+        if (slow == fast) {
+            return YES;
+        }
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return false;
+}
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];
     Node *cur = _head;

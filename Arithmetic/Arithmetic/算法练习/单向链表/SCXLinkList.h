@@ -62,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 反转链表
 - (void)reverseList;
 
+/// 链表是否有环
+- (BOOL)hasCircle;
+
 @end
 
 NS_ASSUME_NONNULL_END
