@@ -19,10 +19,7 @@ typedef struct ListNode{
 }
 -(instancetype)init{
     if (self = [super init]) {
-        _head = (Node *)malloc(sizeof(Node));
         _size = 0;
-        _head->data = nil;
-        _head->next = NULL;
     }
     return self;
 }
@@ -43,7 +40,12 @@ typedef struct ListNode{
         newNode->next = preNode;
         _head = newNode;
         _size ++;
-        return (__bridge id _Nonnull)preNode->data;
+        if (preNode != NULL) {
+            return (__bridge id _Nonnull)preNode->data;
+        } else {
+            return nil;
+        }
+        
     } else {
         Node *preNode = [self nodeAtIndex:index - 1];
         Node *newNode = (Node *)malloc(sizeof(Node));
@@ -78,7 +80,6 @@ typedef struct ListNode{
         return nil;
     }
     if(index == 0){
-         NSLog(@"%@",self);
          Node *preNode = _head;
         _head = _head->next;
         _size --;
@@ -87,7 +88,6 @@ typedef struct ListNode{
         preNode = NULL;
         return data;
     } else {
-        NSLog(@"%@",self);
         Node *preNode = [self nodeAtIndex:index - 1];
         Node *cur = preNode->next;
         id data = (__bridge id _Nonnull)cur->data;
@@ -103,7 +103,7 @@ typedef struct ListNode{
         return;
     }
     Node *cur = _head;
-    while (cur->next != NULL) {
+    while (cur != NULL) {
         id data = (__bridge id)(cur->data);
         if ([data isEqual:object]) {
 //            cur->data = cur->next->data;
@@ -121,7 +121,7 @@ typedef struct ListNode{
 -(BOOL)containObject:(id)object{
     BOOL has = NO;
     Node *cur = _head;
-    while (cur->next != NULL) {
+    while (cur != NULL) {
         id data = (__bridge id)(cur->data);
         if ([data isEqual:object]) {
             return YES;
@@ -159,7 +159,7 @@ typedef struct ListNode{
 }
 - (void)clear{
     Node *cur = _head;
-    while (cur->next != NULL) {
+    while (cur != NULL) {
         Node *pre = cur;
         cur = cur->next;
         free(pre);
@@ -168,10 +168,34 @@ typedef struct ListNode{
     _size = 0;
     _head = NULL;
 }
+- (void)reverseList{
+    Node *pre = NULL;
+    Node *cur = _head;
+    while (cur != NULL) {
+        Node *tmp = cur->next;
+        cur->next = pre;;
+        pre = cur;
+        cur = tmp;
+    }
+    _head = pre;
+}
+- (void)reverseList1{
+    [self reverse:NULL cur:_head];
+}
+- (Node *)reverse:(Node *)pre cur:(Node *)head{
+    if (head == NULL) {
+        _head = pre;
+        return pre;
+    }
+    Node *cur = head->next;
+    head->next = pre;
+    pre = head;
+    return [self reverse:pre cur:cur];
+}
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];
     Node *cur = _head;
-    while (cur && cur->next != NULL) {
+    while (cur != NULL ) {
         [str appendFormat:@"%@,",cur->data];
         cur = cur->next;
     }

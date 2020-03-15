@@ -23,15 +23,19 @@
     [list addObject:@"4" atIndex:0];
     [list addObject:@"5" atIndex:3];
     [list addObject:@"6" atIndex:5];
+    NSLog(@"----%@",list);
     [list removeFirstObject];
+    NSLog(@"----%@",list);
     [list removeLastObject];
+    NSLog(@"----%@",list);
     [list deleteObject:@"5"];
     NSLog(@"%@",[list removeObjectAtIndex:0]);
-//    NSLog(@"%d",[list containObject:@"2"]);
-//    NSLog(@"%d",[list containObject:@"6"]);
-//    NSLog(@"%ld",[list indexOfObject:@"6"]);
-    NSLog(@"%@",list);
-    [list clear];
+    NSLog(@"%d",[list containObject:@"2"]);
+    NSLog(@"%d",[list containObject:@"6"]);
+    NSLog(@"%ld",[list indexOfObject:@"6"]);
+    NSLog(@"----%@",list);
+    //    [list clear];
+    [list reverseList];
     NSLog(@"%@",list);
 }
 

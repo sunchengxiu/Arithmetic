@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)containObject:(ObjectType)object;
 - (NSInteger)indexOfObject:(ObjectType)object;
 - (void)clear;
+- (void)reverseList;
 @property (nonatomic,strong,readonly)ObjectType firstObject;
 @property (nonatomic,strong,readonly)ObjectType lastObject;
 
