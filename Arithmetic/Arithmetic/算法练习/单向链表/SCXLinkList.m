@@ -216,4 +216,7 @@ typedef struct ListNode{
     }
     return str;
 }
+-(int)count{
+    return _size;
+}
 @end

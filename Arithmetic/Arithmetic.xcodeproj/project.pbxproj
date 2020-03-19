@@ -18,6 +18,7 @@
 		E857C462241A0AC6002C108B /* ArithmeticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C461241A0AC6002C108B /* ArithmeticUITests.m */; };
 		E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8676CC0241A35980065C9E6 /* SCXLinkList.m */; };
 		E87C825F241A74E3008041A9 /* SCXDeleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E87C825E241A74E3008041A9 /* SCXDeleNode.m */; };
+		E8BC3F3C24230E4B0052FB59 /* SCXCircleList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC3F3B24230E4B0052FB59 /* SCXCircleList.m */; };
 		E8FD3FB1241CF0CF0090C9FE /* SCXReverseList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FD3FB0241CF0CF0090C9FE /* SCXReverseList.m */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,9 @@
 		E8676CC0241A35980065C9E6 /* SCXLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLinkList.m; sourceTree = "<group>"; };
 		E87C825D241A74E3008041A9 /* SCXDeleNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXDeleNode.h; sourceTree = "<group>"; };
 		E87C825E241A74E3008041A9 /* SCXDeleNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXDeleNode.m; sourceTree = "<group>"; };
+		E8BC3F3924230A630052FB59 /* publicProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = publicProtocol.h; sourceTree = "<group>"; };
+		E8BC3F3A24230E4B0052FB59 /* SCXCircleList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleList.h; sourceTree = "<group>"; };
+		E8BC3F3B24230E4B0052FB59 /* SCXCircleList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXCircleList.m; sourceTree = "<group>"; };
 		E8FD3FAF241CF0CF0090C9FE /* SCXReverseList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXReverseList.h; sourceTree = "<group>"; };
 		E8FD3FB0241CF0CF0090C9FE /* SCXReverseList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXReverseList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +164,8 @@
 		E87C8259241A7480008041A9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
+				E8BC3F3824230A3D0052FB59 /* Protocol */,
+				E8BC3F37242309DC0052FB59 /* 双向链表 */,
 				E8676CBE241A356F0065C9E6 /* 单向链表 */,
 			);
 			path = "算法练习";
@@ -189,6 +195,23 @@
 				E87C825E241A74E3008041A9 /* SCXDeleNode.m */,
 			);
 			path = "237删除链表中的节点";
+			sourceTree = "<group>";
+		};
+		E8BC3F37242309DC0052FB59 /* 双向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				E8BC3F3A24230E4B0052FB59 /* SCXCircleList.h */,
+				E8BC3F3B24230E4B0052FB59 /* SCXCircleList.m */,
+			);
+			path = "双向链表";
+			sourceTree = "<group>";
+		};
+		E8BC3F3824230A3D0052FB59 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E8BC3F3924230A630052FB59 /* publicProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		E8FD3FAE241CF0A70090C9FE /* 206反转链表 */ = {
@@ -336,6 +359,7 @@
 				E857C43C241A0AC3002C108B /* AppDelegate.m in Sources */,
 				E857C44D241A0AC6002C108B /* main.m in Sources */,
 				E857C43F241A0AC3002C108B /* SceneDelegate.m in Sources */,
+				E8BC3F3C24230E4B0052FB59 /* SCXCircleList.m in Sources */,
 				E8FD3FB1241CF0CF0090C9FE /* SCXReverseList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
