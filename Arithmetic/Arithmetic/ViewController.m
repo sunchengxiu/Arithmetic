@@ -28,6 +28,12 @@
     NSLog(@"%@",[list addToTail:@"7"]);
     NSLog(@"~~~~~");
     NSLog(@"%@",list);
+    NSLog(@"%@",[list removeObjectAtIndex:0]);
+    
+    NSLog(@"%@",[list removeObjectAtIndex:10]);
+    [list deleteObject:@"5"];
+    [list deleteObject:@"30"];
+    NSLog(@"%@",list);
 }
 - (void)testSignalList{
        SCXLinkList *list = [[SCXLinkList alloc] init];
