@@ -27,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic , strong , readonly)id lastObject;
 
+/// 重置
+- (void)reset;
+
+/// next
+- (id)next;
+
 @end
 
 NS_ASSUME_NONNULL_END

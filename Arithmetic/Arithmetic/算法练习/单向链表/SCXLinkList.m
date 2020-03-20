@@ -57,7 +57,7 @@ typedef struct ListNode{
     }
 }
 -(id)setObject:(id)object atIndex:(NSInteger)index{
-    if (![self enable:index] || !object) {
+    if (![self enable:index] || !object || index == _size) {
         return nil;
     }
     Node *node = [self nodeAtIndex:index];

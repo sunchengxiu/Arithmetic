@@ -81,15 +81,107 @@
     _size ++;
     return obj;
 }
-
 - (id)addToHead:(id)object {
     return [self addObject:object atIndex:0];
 }
-
 - (id)addToTail:(id)object {
     return [self addObject:object atIndex:_size];
 }
-
+- (void)clear {
+    _head = nil;
+    _last = nil;
+    _size = 0;
+}
+- (BOOL)containObject:(id)object {
+    if (!object) {
+        return NO;
+    }
+    SCXNode *cur = _head;
+    for (int i = 0 ; i < _size; i ++) {
+        if ([cur.data isEqual:object]) {
+            return YES;
+        }
+        cur = cur.next;
+    }
+    return NO;
+}
+- (void)deleteObject:(id)object {
+    NSInteger index = [self indexOfObject:object];
+    if (index != -1) {
+        [self removeObjectAtIndex:index];
+    }
+}
+- (BOOL)hasCircle {
+    return YES;
+}
+-(void)reset{
+    _current = _head;
+}
+-(id)next{
+    if (_current == nil) {
+        _current = _head;
+        return _head.data;
+    } else{
+        _current = _current.next;
+        return _current.data;
+    }
+}
+- (NSInteger)indexOfObject:(id)object {
+    if (!object) {
+        return -1;
+    }
+    SCXNode *cur = _head;
+    for (int i = 0 ; i < _size; i ++) {
+        if ([cur.data isEqual:object]) {
+            return i;
+        }
+        cur = cur.next;
+    }
+    return -1;
+}
+- (id)removeFirstObject {
+    return [self removeObjectAtIndex:0];
+}
+- (id)removeLastObject {
+    return [self removeObjectAtIndex:_size];
+}
+- (id)removeObjectAtIndex:(NSInteger)index {
+    if (![self enable:index]) {
+        return nil;
+    }
+    if (_size == 1) {
+        id data = _head.data;
+        _head = nil;
+        _last = nil;
+        _size --;
+        return data;
+    } else {
+        SCXNode *cur = [self nodeAtIndex:index];
+        id data = cur.data;
+        SCXNode *pre = cur.pre;
+        SCXNode *next = cur.next;
+        pre.next = next;
+        next.pre = pre;
+        if (cur == _head) {
+            _head = next;
+        }
+        if (cur == _last) {
+            _last = pre;
+        }
+        cur = nil;
+        _size--;
+        return data;
+    }
+}
+- (id)setObject:(id)object atIndex:(NSInteger)index {
+    if (![self enable:index] || index == _size) {
+        return nil;
+    }
+    SCXNode *node = [self nodeAtIndex:index];
+    id data = node.data;
+    node.data = object;
+    return data;
+}
 - (id)nodeAtIndex:(NSInteger)index{
     if (![self enable:index]) {
         return NULL;

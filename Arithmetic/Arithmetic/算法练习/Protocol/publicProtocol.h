@@ -57,9 +57,6 @@
 /// 清空链表
 - (void)clear;
 
-/// 反转链表
-- (void)reverseList;
-
 /// 链表是否有环
 - (BOOL)hasCircle;
 
