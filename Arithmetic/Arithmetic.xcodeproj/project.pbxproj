@@ -18,7 +18,9 @@
 		E857C462241A0AC6002C108B /* ArithmeticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E857C461241A0AC6002C108B /* ArithmeticUITests.m */; };
 		E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8676CC0241A35980065C9E6 /* SCXLinkList.m */; };
 		E87C825F241A74E3008041A9 /* SCXDeleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E87C825E241A74E3008041A9 /* SCXDeleNode.m */; };
+		E8F674FC242F30F300F4F8F9 /* SCXBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F674FB242F30F300F4F8F9 /* SCXBinarySearchTree.m */; };
 		E8FD3FB1241CF0CF0090C9FE /* SCXReverseList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FD3FB0241CF0CF0090C9FE /* SCXReverseList.m */; };
+		E8FD3FB5242258830090C9FE /* SCXSingalCircleList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FD3FB4242258830090C9FE /* SCXSingalCircleList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,12 @@
 		E8676CC0241A35980065C9E6 /* SCXLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLinkList.m; sourceTree = "<group>"; };
 		E87C825D241A74E3008041A9 /* SCXDeleNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXDeleNode.h; sourceTree = "<group>"; };
 		E87C825E241A74E3008041A9 /* SCXDeleNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXDeleNode.m; sourceTree = "<group>"; };
+		E8F674FA242F30F300F4F8F9 /* SCXBinarySearchTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinarySearchTree.h; sourceTree = "<group>"; };
+		E8F674FB242F30F300F4F8F9 /* SCXBinarySearchTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBinarySearchTree.m; sourceTree = "<group>"; };
 		E8FD3FAF241CF0CF0090C9FE /* SCXReverseList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXReverseList.h; sourceTree = "<group>"; };
 		E8FD3FB0241CF0CF0090C9FE /* SCXReverseList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXReverseList.m; sourceTree = "<group>"; };
+		E8FD3FB3242258830090C9FE /* SCXSingalCircleList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXSingalCircleList.h; sourceTree = "<group>"; };
+		E8FD3FB4242258830090C9FE /* SCXSingalCircleList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXSingalCircleList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,8 @@
 		E87C8259241A7480008041A9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
+				E8F674F9242F30D900F4F8F9 /* 二叉搜索树 */,
+				E8FD3FB2242258520090C9FE /* 单循环链表 */,
 				E8676CBE241A356F0065C9E6 /* 单向链表 */,
 			);
 			path = "算法练习";
@@ -191,6 +199,15 @@
 			path = "237删除链表中的节点";
 			sourceTree = "<group>";
 		};
+		E8F674F9242F30D900F4F8F9 /* 二叉搜索树 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F674FA242F30F300F4F8F9 /* SCXBinarySearchTree.h */,
+				E8F674FB242F30F300F4F8F9 /* SCXBinarySearchTree.m */,
+			);
+			path = "二叉搜索树";
+			sourceTree = "<group>";
+		};
 		E8FD3FAE241CF0A70090C9FE /* 206反转链表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +215,15 @@
 				E8FD3FB0241CF0CF0090C9FE /* SCXReverseList.m */,
 			);
 			path = "206反转链表";
+			sourceTree = "<group>";
+		};
+		E8FD3FB2242258520090C9FE /* 单循环链表 */ = {
+			isa = PBXGroup;
+			children = (
+				E8FD3FB3242258830090C9FE /* SCXSingalCircleList.h */,
+				E8FD3FB4242258830090C9FE /* SCXSingalCircleList.m */,
+			);
+			path = "单循环链表";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E87C825F241A74E3008041A9 /* SCXDeleNode.m in Sources */,
+				E8F674FC242F30F300F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E857C442241A0AC3002C108B /* ViewController.m in Sources */,
+				E8FD3FB5242258830090C9FE /* SCXSingalCircleList.m in Sources */,
 				E8676CC1241A35980065C9E6 /* SCXLinkList.m in Sources */,
 				E857C43C241A0AC3002C108B /* AppDelegate.m in Sources */,
 				E857C44D241A0AC6002C108B /* main.m in Sources */,
