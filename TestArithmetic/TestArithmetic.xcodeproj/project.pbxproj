@@ -22,6 +22,8 @@
 		E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6754E242F32E000F4F8F9 /* SCXBinarySearchTree.m */; };
 		E8F6755B242F32F300F4F8F9 /* SCXReverseList.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67556242F32F300F4F8F9 /* SCXReverseList.m */; };
 		E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67559242F32F300F4F8F9 /* SCXDeleNode.m */; };
+		E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */; };
+		E8F675B6242F392500F4F8F9 /* SCXBinaryNodeDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675B5242F392500F4F8F9 /* SCXBinaryNodeDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,6 @@
 		E8F67532242F32A800F4F8F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F67542242F32E000F4F8F9 /* SCXCircleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCXCircleList.h; sourceTree = "<group>"; };
 		E8F67543242F32E000F4F8F9 /* SCXCircleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCXCircleList.m; sourceTree = "<group>"; };
-		E8F67545242F32E000F4F8F9 /* publicProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publicProtocol.h; sourceTree = "<group>"; };
 		E8F67547242F32E000F4F8F9 /* SCXLinkList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCXLinkList.m; sourceTree = "<group>"; };
 		E8F67548242F32E000F4F8F9 /* SCXLinkList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCXLinkList.h; sourceTree = "<group>"; };
 		E8F6754A242F32E000F4F8F9 /* SCXSingalCircleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCXSingalCircleList.h; sourceTree = "<group>"; };
@@ -73,6 +74,11 @@
 		E8F67557242F32F300F4F8F9 /* SCXReverseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCXReverseList.h; sourceTree = "<group>"; };
 		E8F67559242F32F300F4F8F9 /* SCXDeleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCXDeleNode.m; sourceTree = "<group>"; };
 		E8F6755A242F32F300F4F8F9 /* SCXDeleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCXDeleNode.h; sourceTree = "<group>"; };
+		E8F6755D242F368100F4F8F9 /* SCXBinaryTreeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinaryTreeProtocol.h; sourceTree = "<group>"; };
+		E8F675B1242F387400F4F8F9 /* SCXBinaryData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinaryData.h; sourceTree = "<group>"; };
+		E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBinaryData.m; sourceTree = "<group>"; };
+		E8F675B4242F392500F4F8F9 /* SCXBinaryNodeDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinaryNodeDate.h; sourceTree = "<group>"; };
+		E8F675B5242F392500F4F8F9 /* SCXBinaryNodeDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBinaryNodeDate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +167,6 @@
 		E8F67540242F32E000F4F8F9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
-				E8F67544242F32E000F4F8F9 /* Protocol */,
 				E8F67541242F32E000F4F8F9 /* 双向链表 */,
 				E8F67546242F32E000F4F8F9 /* 单向链表 */,
 				E8F67549242F32E000F4F8F9 /* 单循环链表 */,
@@ -177,14 +182,6 @@
 				E8F67543242F32E000F4F8F9 /* SCXCircleList.m */,
 			);
 			path = "双向链表";
-			sourceTree = "<group>";
-		};
-		E8F67544242F32E000F4F8F9 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				E8F67545242F32E000F4F8F9 /* publicProtocol.h */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		E8F67546242F32E000F4F8F9 /* 单向链表 */ = {
@@ -210,6 +207,11 @@
 			children = (
 				E8F6754D242F32E000F4F8F9 /* SCXBinarySearchTree.h */,
 				E8F6754E242F32E000F4F8F9 /* SCXBinarySearchTree.m */,
+				E8F6755D242F368100F4F8F9 /* SCXBinaryTreeProtocol.h */,
+				E8F675B1242F387400F4F8F9 /* SCXBinaryData.h */,
+				E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */,
+				E8F675B4242F392500F4F8F9 /* SCXBinaryNodeDate.h */,
+				E8F675B5242F392500F4F8F9 /* SCXBinaryNodeDate.m */,
 			);
 			path = "二叉搜索树";
 			sourceTree = "<group>";
@@ -380,9 +382,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8F67551242F32E000F4F8F9 /* SCXSingalCircleList.m in Sources */,
+				E8F675B6242F392500F4F8F9 /* SCXBinaryNodeDate.m in Sources */,
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
 				E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */,
+				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */,
 				E8F6751C242F32A800F4F8F9 /* main.m in Sources */,
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,

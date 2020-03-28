@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "SCXBinaryTreeProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCXBinarySearchTree : NSObject
 
+@interface SCXBinarySearchTree : NSObject<SCXBinaryTreeProtocol>
+- (BOOL)isEmpty;
+- (void)clear;
+- (void)addObject:(id <SCXBinaryTreeProtocol>)obj;
+- (void)removeObject:(id <SCXBinaryTreeProtocol>)obj;
+- (void)containsObject:(id <SCXBinaryTreeProtocol>)obj;
+- (int)size;
 @end
 
 NS_ASSUME_NONNULL_END
