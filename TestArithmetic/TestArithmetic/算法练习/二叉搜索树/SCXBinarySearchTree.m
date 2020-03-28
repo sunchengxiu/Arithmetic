@@ -73,17 +73,11 @@
         return NO;
     }
     NSAssert([obj conformsToProtocol:@protocol(SCXBinaryTreeProtocol)], @"please conform SCXBinaryTreeProtocol");
-    NSAssert([obj respondsToSelector:@selector(getBinaryValue)], @"please respondsToSelector getBinaryValue");
+    NSAssert([obj respondsToSelector:@selector(compare:)], @"please respondsToSelector compare:)");
     return YES;
 }
 - (int)compare:(id <SCXBinaryTreeProtocol>)node1 node2:(id <SCXBinaryTreeProtocol>)node2{
-    if ([node1 getBinaryNodeValue] < [node2 getBinaryNodeValue]) {
-        return 1;
-    }
-    if ([node1 getBinaryNodeValue] == [node2 getBinaryNodeValue]) {
-        return 0;
-    }
-    return -1;
+    return [node2 compare:node1];
 }
 -(int)size{
     return _size;

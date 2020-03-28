@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "SCXLinkList.h"
-
+#import "SCXBinarySearchTree.h"
 #import "SCXSingalCircleList.h"
 #import "SCXCircleList.h"
+#import "SCXBinaryNodeDate.h"
 @interface ViewController ()
 
 @end
@@ -20,7 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self testCircleList];
+    [self testBinarySearchTree];
+}
+- (void)testBinarySearchTree{
+    SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
+    NSArray *arr = @[@"7",@"4",@"9",@"2",@"5",@"8@",@"11",@"3"];
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+    }
 }
 - (void)testCircleList{
     SCXCircleList *list = [[SCXCircleList alloc] init];

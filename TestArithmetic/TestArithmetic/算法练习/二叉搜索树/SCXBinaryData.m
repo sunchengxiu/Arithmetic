@@ -9,7 +9,8 @@
 #import "SCXBinaryData.h"
 
 @implementation SCXBinaryData
--(int)getBinaryNodeValue{
-    return _value;
+-(int)compare:(id<SCXBinaryTreeProtocol>)preNode{
+    SCXBinaryData *data = (SCXBinaryData *)preNode;
+    return [self.value intValue] - [data.value intValue];
 }
 @end

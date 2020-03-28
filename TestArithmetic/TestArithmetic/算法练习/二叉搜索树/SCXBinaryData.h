@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SCXBinaryData : NSObject<SCXBinaryTreeProtocol>
-@property(nonatomic,assign)int value;
+@property(nonatomic,copy)NSString *value;
 @end
 
 NS_ASSUME_NONNULL_END
