@@ -44,7 +44,7 @@
     }
     
     NSLog(@"%@",queue);
-    for (int i = 210; i < 212; i ++) {
+    for (int i = 210; i < 213; i ++) {
         [queue enqueueFromFront:[NSNumber numberWithInt:i]];
     }
     NSLog(@"%@",queue);

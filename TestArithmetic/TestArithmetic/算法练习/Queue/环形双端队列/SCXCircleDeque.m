@@ -82,6 +82,9 @@ static NSInteger const defaultCapacity = 10;
     id obj = _arrayQueue[index];
     _arrayQueue[index] = [NSNull null];
     _size--;
+    if (_size == 0) {
+        _frontIdx = 0;
+    }
     return obj;
 }
 -(id)front{
@@ -108,6 +111,10 @@ static NSInteger const defaultCapacity = 10;
         return;
     }
     int newCapcity = oldCapcity + (oldCapcity >> 1);
+    [self resMemory:newCapcity];
+}
+- (void)resMemory:(int)newCapcity{
+    int oldCapcity = _capacity;
     NSMutableArray *newArr = [[NSMutableArray alloc] initWithCapacity:newCapcity];
     for (int i = 0 ; i < [self size]; i ++ ) {
         newArr[i] = _arrayQueue[(i + _frontIdx) % oldCapcity];
