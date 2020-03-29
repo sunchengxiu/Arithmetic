@@ -1,5 +1,5 @@
 //
-//  SCXCircleArrayQueue.h
+//  SCXCircleDeque.h
 //  TestArithmetic
 //
 //  Created by 孙承秀 on 2020/3/29.
@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 环形数组队列
-@interface SCXCircleArrayQueue<ObjectType> : NSObject
+/// 环形双端队列
+@interface SCXCircleDeque<ObjectType> : NSObject
 -(instancetype)init NS_UNAVAILABLE;
 +(instancetype)new NS_UNAVAILABLE;
 
@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 队列头结点
 @property(nonatomic,strong,readonly)ObjectType front;
+
+/// 队列尾结点
+@property(nonatomic,strong,readonly)ObjectType tail;
 
 /// 队列总容量
 @property(nonatomic,assign,readonly)int capacity;

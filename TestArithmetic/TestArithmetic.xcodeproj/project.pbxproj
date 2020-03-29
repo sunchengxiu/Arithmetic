@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750A242F32A600F4F8F9 /* AppDelegate.m */; };
 		E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750D242F32A600F4F8F9 /* SceneDelegate.m */; };
 		E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67510242F32A600F4F8F9 /* ViewController.m */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E88033A32430CF29002783A2 /* SCXCircleDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleDeque.h; sourceTree = "<group>"; };
+		E88033A42430CF29002783A2 /* SCXCircleDeque.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXCircleDeque.m; sourceTree = "<group>"; };
 		E8F67506242F32A600F4F8F9 /* TestArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F67509242F32A600F4F8F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8F6750A242F32A600F4F8F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,6 +115,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E88033A62430CFF2002783A2 /* 数组队列 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F675B824306ECF00F4F8F9 /* SCXArrayQueue.h */,
+				E8F675B924306ECF00F4F8F9 /* SCXArrayQueue.m */,
+			);
+			path = "数组队列";
+			sourceTree = "<group>";
+		};
+		E88033A72430CFFB002783A2 /* 环形队列 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F675BB24306EE300F4F8F9 /* SCXCircleArrayQueue.h */,
+				E8F675BC24306EE300F4F8F9 /* SCXCircleArrayQueue.m */,
+			);
+			path = "环形队列";
+			sourceTree = "<group>";
+		};
+		E88033A92430D00F002783A2 /* 环形双端队列 */ = {
+			isa = PBXGroup;
+			children = (
+				E88033A32430CF29002783A2 /* SCXCircleDeque.h */,
+				E88033A42430CF29002783A2 /* SCXCircleDeque.m */,
+			);
+			path = "环形双端队列";
+			sourceTree = "<group>";
+		};
 		E8F674FD242F32A600F4F8F9 = {
 			isa = PBXGroup;
 			children = (
@@ -261,10 +291,9 @@
 		E8F675B724306EB700F4F8F9 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
-				E8F675B824306ECF00F4F8F9 /* SCXArrayQueue.h */,
-				E8F675B924306ECF00F4F8F9 /* SCXArrayQueue.m */,
-				E8F675BB24306EE300F4F8F9 /* SCXCircleArrayQueue.h */,
-				E8F675BC24306EE300F4F8F9 /* SCXCircleArrayQueue.m */,
+				E88033A92430D00F002783A2 /* 环形双端队列 */,
+				E88033A72430CFFB002783A2 /* 环形队列 */,
+				E88033A62430CFF2002783A2 /* 数组队列 */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -412,6 +441,7 @@
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,
 				E8F6755B242F32F300F4F8F9 /* SCXReverseList.m in Sources */,
 				E8F67550242F32E000F4F8F9 /* SCXLinkList.m in Sources */,
+				E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */,
 				E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

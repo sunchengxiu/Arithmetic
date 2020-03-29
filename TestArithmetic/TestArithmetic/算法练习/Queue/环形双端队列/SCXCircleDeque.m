@@ -1,16 +1,14 @@
-
 //
-//  SCXCircleArrayQueue.m
+//  SCXCircleDeque.m
 //  TestArithmetic
 //
 //  Created by 孙承秀 on 2020/3/29.
 //  Copyright © 2020 孙承秀. All rights reserved.
 //
 
-#import "SCXCircleArrayQueue.h"
+#import "SCXCircleDeque.h"
 static NSInteger const defaultCapacity = 10;
-typedef void * AnyObject;
-@interface SCXCircleArrayQueue()
+@interface SCXCircleDeque()
 {
     int _frontIdx;
     NSMutableArray * _arrayQueue;
@@ -21,12 +19,12 @@ typedef void * AnyObject;
 ///capacity
 @property (nonatomic,assign)int capacity;
 @end
-@implementation SCXCircleArrayQueue
+@implementation SCXCircleDeque
 +(instancetype)arrayQueue{
     return [self arrayQueueWithCapacity:defaultCapacity];
 }
 + (instancetype)arrayQueueWithCapacity:(NSInteger)capacity {
-    return [[SCXCircleArrayQueue alloc] initWithArrayCapacity:capacity];
+    return [[SCXCircleDeque alloc] initWithArrayCapacity:capacity];
 }
 -(instancetype)initWithArrayCapacity:(NSInteger)capacity{
     if (self = [super init]) {
@@ -63,6 +61,7 @@ typedef void * AnyObject;
 -(id)front{
     return _arrayQueue[_frontIdx];
 }
+
 -(int)size{
     return _size;
 }
@@ -99,5 +98,8 @@ typedef void * AnyObject;
         [str appendFormat:@"%@,",obj];
     }
     return str;
+}
+- (id)tail{
+    return  _arrayQueue[(_frontIdx + _size - 1) % _capacity];
 }
 @end

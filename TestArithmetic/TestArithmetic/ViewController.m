@@ -14,6 +14,7 @@
 #import "SCXBinaryNodeDate.h"
 #import "SCXArrayQueue.h"
 #import "SCXCircleArrayQueue.h"
+#import "SCXCircleDeque.h"
 @interface ViewController ()
 
 @end
@@ -22,11 +23,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [self testBinarySearchTree];
-    [self testCircleArrayQueue];
+    
+    //    [self testBinarySearchTree];
+    [self testCircleDeque];
 }
-
+- (void)testCircleDeque{
+    SCXCircleDeque *queue = [SCXCircleDeque arrayQueue];
+    for (int i = 0; i < 9; i ++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [queue enqueue:num];
+    }
+    int size = queue.size / 2;
+    for (int i = 0; i < size; i ++) {
+        NSNumber *num = [queue dequeue];
+        //        NSLog(@"%@",num);
+    }
+    for (int i = 100; i < 103; i ++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [queue enqueue:num];
+    }
+    NSLog(@"%@",queue);
+}
 /// 测试环形数组队列
 - (void)testCircleArrayQueue{
     SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
@@ -37,7 +54,7 @@
     int size = queue.size / 2;
     for (int i = 0; i < size; i ++) {
         NSNumber *num = [queue dequeue];
-//        NSLog(@"%@",num);
+        //        NSLog(@"%@",num);
     }
     for (int i = 100; i < 103; i ++) {
         NSNumber *num = [NSNumber numberWithInt:i];
@@ -48,7 +65,7 @@
 
 /// 测试数组队列
 - (void)testArrayQueue{
-
+    
     SCXArrayQueue <NSNumber *> *arrayQueue = [[SCXArrayQueue alloc] initWithArrayCapacity:2];
     for (int i = 0; i<10; i++) {
         NSNumber *num = [NSNumber numberWithInt:i];
@@ -77,7 +94,7 @@
         [timeArray addObject:@(duration)];
         [NSThread sleepForTimeInterval:0.1f];
     }
-
+    
     /*
      NSArray(array: numberArray).value(forKeyPath: "@min.self") // 最小值
      NSArray(array: numberArray).value(forKeyPath: "@max.self") // 最大值
@@ -86,7 +103,7 @@
      NSArray(array: numberArray).value(forKeyPath: "@count.self") // 等同于Array.count
      */
     NSLog(@"avg time is %@",[timeArray valueForKeyPath:@"@avg.self"]);
-
+    
 }
 // 二叉搜索树
 - (void)testBinarySearchTree{
@@ -94,9 +111,9 @@
     NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
     /*
      
-                    7
-            4                9
-        2       5       8       11
+     7
+     4                9
+     2       5       8       11
      1      3               10      12
      
      */
@@ -106,7 +123,7 @@
         [tree addObject:data];
     }
     // 前序遍历7,4,2,1,3,5,9,8,11,10,12
-//    [tree preorderTraversal];
+    //    [tree preorderTraversal];
     // 中序遍历1,2,3,4,5,7,8,9,10,11,12
     [tree inorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
         NSLog(@"%@",obj.value);
@@ -115,11 +132,11 @@
         }
     }];
     // 后续遍历1,3,2,5,4,8,10,12,11,9,7
-//    [tree postorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
-//        if ([obj.value isEqualToString:@"2"]) {
-//            *stop = YES;
-//        }
-//    }];
+    //    [tree postorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+    //        if ([obj.value isEqualToString:@"2"]) {
+    //            *stop = YES;
+    //        }
+    //    }];
 }
 // 环形链表
 - (void)testCircleList{
@@ -140,27 +157,27 @@
 }
 //单链表
 - (void)testSignalList{
-       SCXLinkList *list = [[SCXLinkList alloc] init];
-        [list removeLastObject];
-        [list addToHead:@"2"];
-        [list addObject:@"4" atIndex:0];
-        [list addObject:@"5" atIndex:3];
-        [list addObject:@"6" atIndex:5];
-        [list removeFirstObject];
-        NSLog(@"----%@",list);
-        [list removeLastObject];
-        NSLog(@"----%@",list);
-        [list deleteObject:@"5"];
-        NSLog(@"%@",[list removeObjectAtIndex:0]);
-        NSLog(@"%d",[list containObject:@"2"]);
-        NSLog(@"%d",[list containObject:@"6"]);
-        NSLog(@"%ld",[list indexOfObject:@"6"]);
-        NSLog(@"----%@",list);
-        //    [list clear];
-        [list reverseList];
-        NSLog(@"%@",list);
-        NSLog(@"has circle : %d",[list hasCircle]);
-
+    SCXLinkList *list = [[SCXLinkList alloc] init];
+    [list removeLastObject];
+    [list addToHead:@"2"];
+    [list addObject:@"4" atIndex:0];
+    [list addObject:@"5" atIndex:3];
+    [list addObject:@"6" atIndex:5];
+    [list removeFirstObject];
+    NSLog(@"----%@",list);
+    [list removeLastObject];
+    NSLog(@"----%@",list);
+    [list deleteObject:@"5"];
+    NSLog(@"%@",[list removeObjectAtIndex:0]);
+    NSLog(@"%d",[list containObject:@"2"]);
+    NSLog(@"%d",[list containObject:@"6"]);
+    NSLog(@"%ld",[list indexOfObject:@"6"]);
+    NSLog(@"----%@",list);
+    //    [list clear];
+    [list reverseList];
+    NSLog(@"%@",list);
+    NSLog(@"has circle : %d",[list hasCircle]);
+    
 }
 
 @end
