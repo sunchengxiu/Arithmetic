@@ -18,6 +18,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeObject:(id <SCXBinaryTreeProtocol>)obj;
 - (void)containsObject:(id <SCXBinaryTreeProtocol>)obj;
 - (int)size;
+
+#pragma mark - 遍历
+
+/// 前序遍历
+- (void)preorderTraversal;
+
+/// 中序遍历
+- (void)inorderTraversal;
+
+/// 后续遍历
+- (void)postorderTraversal;
+
+- (void)levelorderTraversal;
+
 @end
 
 NS_ASSUME_NONNULL_END

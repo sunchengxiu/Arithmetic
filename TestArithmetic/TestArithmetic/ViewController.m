@@ -23,15 +23,31 @@
 
     [self testBinarySearchTree];
 }
+// 二叉搜索树
 - (void)testBinarySearchTree{
     SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
-    NSArray *arr = @[@"7",@"4",@"9",@"2",@"5",@"8@",@"11",@"3"];
+    NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
+    /*
+     
+                    7
+            4                9
+        2       5       8       11
+     1      3               10      12
+     
+     */
     for (NSString *value in arr) {
         SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
         data.value = value;
         [tree addObject:data];
     }
+    // 前序遍历7,4,2,1,3,5,9,8,11,10,12
+//    [tree preorderTraversal];
+    // 中序遍历1,2,3,4,5,7,8,9,10,11,12
+//    [tree inorderTraversal];
+    // 后续遍历1,3,2,5,4,8,10,12,11,9,7
+    [tree postorderTraversal];
 }
+// 环形链表
 - (void)testCircleList{
     SCXCircleList *list = [[SCXCircleList alloc] init];
     NSLog(@"%@",[list objectAtIndex:0]);
@@ -48,6 +64,7 @@
     [list deleteObject:@"30"];
     NSLog(@"%@",list);
 }
+//单链表
 - (void)testSignalList{
        SCXLinkList *list = [[SCXLinkList alloc] init];
         [list removeLastObject];

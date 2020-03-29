@@ -53,7 +53,7 @@
         } else if (cmp < 0){
             currentNode = currentNode.leftNode;
         } else {
-            // 相等直接返回
+            currentNode.value = obj;
             return;
         }
     }
@@ -84,5 +84,55 @@
 }
 -(BOOL)isEmpty{
     return _size == 0 ? YES : NO;
+}
+#pragma mark - 遍历
+-(void)preorderTraversal{
+    [self _preorderTraversal:_rootNode];
+}
+// 递归前序遍历
+-(void)_preorderTraversal:(SCXBinaryNode *)rootNode{
+    if (rootNode == nil) {
+        return;
+    }
+    NSLog(@"%@",rootNode.value);
+    [self _preorderTraversal:rootNode.leftNode];
+    [self _preorderTraversal:rootNode.rightNode];
+}
+-(void)inorderTraversal{
+    [self _inorderTraversal:_rootNode];
+}
+-(void)_inorderTraversal:(SCXBinaryNode *)rootNode{
+    if (rootNode == nil) {
+        return;
+    }
+    [self _inorderTraversal:rootNode.leftNode];
+    NSLog(@"%@",rootNode.value);
+    [self _inorderTraversal:rootNode.rightNode];
+}
+-(void)postorderTraversal{
+    [self _postorderTraversal:_rootNode];
+}
+-(void)_postorderTraversal:(SCXBinaryNode *)rootNode{
+    if (rootNode == nil) {
+        return;
+    }
+    [self _postorderTraversal:rootNode.leftNode];
+    [self _postorderTraversal:rootNode.rightNode];
+    NSLog(@"%@",rootNode.value);
+}
+/*
+ 使用队列的来实现层序遍历，因为我们是一层一层遍历的，在树的上面的节点是先放到二叉树上面的，然后访问的时候，也是从上面开始访问，并且是先访问根节点，然后左子节点右子节点
+ 1. 将根节点入队
+ 2. 循环执行如下操作
+  2.1 首先将对头节点 A 出对，访问出对。
+  2.2 然后将 A 的左子节点入队，
+  2.4 然后将 A 的右子节点入队
+ 
+ */
+-(void)levelorderTraversal{
+    
+}
+-(void)levelorderTraversal:(SCXBinaryNode *)rootNode{
+    
 }
 @end

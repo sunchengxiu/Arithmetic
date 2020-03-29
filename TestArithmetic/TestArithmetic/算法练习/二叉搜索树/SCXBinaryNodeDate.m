@@ -9,5 +9,7 @@
 #import "SCXBinaryNodeDate.h"
 
 @implementation SCXBinaryNodeDate
-
+-(NSString *)description{
+    return self.value;
+}
 @end
