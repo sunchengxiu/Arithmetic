@@ -203,7 +203,7 @@
 		E8F67540242F32E000F4F8F9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
-				E8F675B724306EB700F4F8F9 /* Queue */,
+				E8F675B724306EB700F4F8F9 /* 队列 */,
 				E8F67541242F32E000F4F8F9 /* 双向链表 */,
 				E8F67546242F32E000F4F8F9 /* 单向链表 */,
 				E8F67549242F32E000F4F8F9 /* 单循环链表 */,
@@ -288,14 +288,14 @@
 			path = "237删除链表中的节点";
 			sourceTree = "<group>";
 		};
-		E8F675B724306EB700F4F8F9 /* Queue */ = {
+		E8F675B724306EB700F4F8F9 /* 队列 */ = {
 			isa = PBXGroup;
 			children = (
 				E88033A92430D00F002783A2 /* 环形双端队列 */,
 				E88033A72430CFFB002783A2 /* 环形队列 */,
 				E88033A62430CFF2002783A2 /* 数组队列 */,
 			);
-			path = Queue;
+			path = "队列";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
