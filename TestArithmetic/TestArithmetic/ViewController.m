@@ -12,6 +12,8 @@
 #import "SCXSingalCircleList.h"
 #import "SCXCircleList.h"
 #import "SCXBinaryNodeDate.h"
+#import "SCXArrayQueue.h"
+#import "SCXCircleArrayQueue.h"
 @interface ViewController ()
 
 @end
@@ -21,7 +23,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self testBinarySearchTree];
+//    [self testBinarySearchTree];
+    [self testCircleArrayQueue];
+}
+
+/// 测试环形数组队列
+- (void)testCircleArrayQueue{
+    
+    for (int i = 0; i < 10; i ++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        
+    }
+}
+
+/// 测试数组队列
+- (void)testArrayQueue{
+
+    SCXArrayQueue <NSNumber *> *arrayQueue = [[SCXArrayQueue alloc] initWithArrayCapacity:2];
+    for (int i = 0; i<10; i++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [arrayQueue enqueue:num];
+    }
+    int size = arrayQueue.size;
+    for (int i = 0 ; i < size; i ++) {
+        NSNumber *num = [arrayQueue dequeue];
+        NSLog(@"%@,",num);
+    }
+}
+/// 数组队列时间测试
+- (void)testArrayQueueTime{
+    int number = 100000;
+    NSMutableArray *timeArray = [NSMutableArray array];
+    SCXBinaryNodeDate *node = [SCXBinaryNodeDate new];
+    for (int i = 0; i<10; i++) {
+        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+        SCXArrayQueue <SCXBinaryNodeDate *> *arrayQueue = [SCXArrayQueue arrayQueue];
+        for (int i = 0; i<number; i++) {
+            [arrayQueue enqueue:node];
+        }
+        [arrayQueue removeAllObjects];
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        CFTimeInterval duration = linkTime * 1000.0f;
+        [timeArray addObject:@(duration)];
+        [NSThread sleepForTimeInterval:0.1f];
+    }
+
+    /*
+     NSArray(array: numberArray).value(forKeyPath: "@min.self") // 最小值
+     NSArray(array: numberArray).value(forKeyPath: "@max.self") // 最大值
+     NSArray(array: numberArray).value(forKeyPath: "@avg.self") // 平均值
+     NSArray(array: numberArray).value(forKeyPath: "@sum.self") // 累加的总量
+     NSArray(array: numberArray).value(forKeyPath: "@count.self") // 等同于Array.count
+     */
+    NSLog(@"avg time is %@",[timeArray valueForKeyPath:@"@avg.self"]);
+
 }
 // 二叉搜索树
 - (void)testBinarySearchTree{
@@ -43,9 +98,18 @@
     // 前序遍历7,4,2,1,3,5,9,8,11,10,12
 //    [tree preorderTraversal];
     // 中序遍历1,2,3,4,5,7,8,9,10,11,12
-//    [tree inorderTraversal];
+    [tree inorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj.value);
+        if ([obj.value isEqualToString:@"2"]) {
+            *stop = YES;
+        }
+    }];
     // 后续遍历1,3,2,5,4,8,10,12,11,9,7
-    [tree postorderTraversal];
+//    [tree postorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+//        if ([obj.value isEqualToString:@"2"]) {
+//            *stop = YES;
+//        }
+//    }];
 }
 // 环形链表
 - (void)testCircleList{

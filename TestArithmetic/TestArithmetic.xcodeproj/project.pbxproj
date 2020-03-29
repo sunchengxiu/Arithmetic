@@ -24,6 +24,8 @@
 		E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67559242F32F300F4F8F9 /* SCXDeleNode.m */; };
 		E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */; };
 		E8F675B6242F392500F4F8F9 /* SCXBinaryNodeDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675B5242F392500F4F8F9 /* SCXBinaryNodeDate.m */; };
+		E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675B924306ECF00F4F8F9 /* SCXArrayQueue.m */; };
+		E8F675BD24306EE300F4F8F9 /* SCXCircleArrayQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F675BC24306EE300F4F8F9 /* SCXCircleArrayQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBinaryData.m; sourceTree = "<group>"; };
 		E8F675B4242F392500F4F8F9 /* SCXBinaryNodeDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinaryNodeDate.h; sourceTree = "<group>"; };
 		E8F675B5242F392500F4F8F9 /* SCXBinaryNodeDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBinaryNodeDate.m; sourceTree = "<group>"; };
+		E8F675B824306ECF00F4F8F9 /* SCXArrayQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXArrayQueue.h; sourceTree = "<group>"; };
+		E8F675B924306ECF00F4F8F9 /* SCXArrayQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXArrayQueue.m; sourceTree = "<group>"; };
+		E8F675BB24306EE300F4F8F9 /* SCXCircleArrayQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleArrayQueue.h; sourceTree = "<group>"; };
+		E8F675BC24306EE300F4F8F9 /* SCXCircleArrayQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXCircleArrayQueue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,7 @@
 		E8F67540242F32E000F4F8F9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
+				E8F675B724306EB700F4F8F9 /* Queue */,
 				E8F67541242F32E000F4F8F9 /* 双向链表 */,
 				E8F67546242F32E000F4F8F9 /* 单向链表 */,
 				E8F67549242F32E000F4F8F9 /* 单循环链表 */,
@@ -249,6 +256,17 @@
 				E8F6755A242F32F300F4F8F9 /* SCXDeleNode.h */,
 			);
 			path = "237删除链表中的节点";
+			sourceTree = "<group>";
+		};
+		E8F675B724306EB700F4F8F9 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				E8F675B824306ECF00F4F8F9 /* SCXArrayQueue.h */,
+				E8F675B924306ECF00F4F8F9 /* SCXArrayQueue.m */,
+				E8F675BB24306EE300F4F8F9 /* SCXCircleArrayQueue.h */,
+				E8F675BC24306EE300F4F8F9 /* SCXCircleArrayQueue.m */,
+			);
+			path = Queue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,8 +404,10 @@
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
 				E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */,
+				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */,
+				E8F675BD24306EE300F4F8F9 /* SCXCircleArrayQueue.m in Sources */,
 				E8F6751C242F32A800F4F8F9 /* main.m in Sources */,
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,
 				E8F6755B242F32F300F4F8F9 /* SCXReverseList.m in Sources */,

@@ -86,39 +86,55 @@
     return _size == 0 ? YES : NO;
 }
 #pragma mark - 遍历
--(void)preorderTraversal{
-    [self _preorderTraversal:_rootNode];
+- (BOOL)isContinue:(Iterator)iterator rootNode:(SCXBinaryNode *)rootNode stop:(BOOL *)stop{
+    if (rootNode == nil || !iterator || *stop) {
+        return NO;
+    }
+    return YES;
+}
+- (void)iterator:(Iterator)iterator rootNode:(SCXBinaryNode *)rootNode stop:(BOOL *)stop{
+    if (*stop) {
+        return;
+    } else {
+        iterator(rootNode.value,stop);
+        if (*stop) {
+            return ;
+        }
+    }
+}
+-(void)preorderTraversal:(Iterator)iterator{
+    BOOL stop = NO;
+    [self _preorderTraversal:_rootNode iterator:iterator stop:&stop] ;
 }
 // 递归前序遍历
--(void)_preorderTraversal:(SCXBinaryNode *)rootNode{
-    if (rootNode == nil) {
-        return;
-    }
-    NSLog(@"%@",rootNode.value);
-    [self _preorderTraversal:rootNode.leftNode];
-    [self _preorderTraversal:rootNode.rightNode];
+-(void)_preorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    [self iterator:iterator rootNode:rootNode stop:stop];
+    if (*stop) return;
+    [self _preorderTraversal:rootNode.leftNode iterator:iterator stop:stop];
+    [self _preorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
 }
--(void)inorderTraversal{
-    [self _inorderTraversal:_rootNode];
+-(void)inorderTraversal:(Iterator)iterator{
+    BOOL stop = NO;
+    [self _inorderTraversal:_rootNode iterator:iterator stop:&stop];
 }
--(void)_inorderTraversal:(SCXBinaryNode *)rootNode{
-    if (rootNode == nil) {
-        return;
-    }
-    [self _inorderTraversal:rootNode.leftNode];
-    NSLog(@"%@",rootNode.value);
-    [self _inorderTraversal:rootNode.rightNode];
+-(void)_inorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    [self _inorderTraversal:rootNode.leftNode iterator:iterator stop:stop];
+    [self iterator:iterator rootNode:rootNode stop:stop];
+    if (*stop) return;
+    [self _inorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
 }
--(void)postorderTraversal{
-    [self _postorderTraversal:_rootNode];
+-(void)postorderTraversal:(Iterator)iterator{
+    BOOL stop = NO;
+    [self _postorderTraversal:_rootNode iterator:iterator stop:&stop];
 }
--(void)_postorderTraversal:(SCXBinaryNode *)rootNode{
-    if (rootNode == nil) {
-        return;
-    }
-    [self _postorderTraversal:rootNode.leftNode];
-    [self _postorderTraversal:rootNode.rightNode];
-    NSLog(@"%@",rootNode.value);
+-(void)_postorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    [self _postorderTraversal:rootNode.leftNode iterator:iterator stop:stop];
+    [self _postorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
+    [self iterator:iterator rootNode:rootNode stop:stop];
+    if (*stop) return;
 }
 /*
  使用队列的来实现层序遍历，因为我们是一层一层遍历的，在树的上面的节点是先放到二叉树上面的，然后访问的时候，也是从上面开始访问，并且是先访问根节点，然后左子节点右子节点
@@ -129,10 +145,10 @@
   2.4 然后将 A 的右子节点入队
  
  */
--(void)levelorderTraversal{
+-(void)levelorderTraversal:(Iterator)iterator{
     
 }
--(void)levelorderTraversal:(SCXBinaryNode *)rootNode{
+-(void)_levelorderTraversal:(SCXBinaryNode *)rootNode{
     
 }
 @end
