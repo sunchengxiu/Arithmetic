@@ -41,7 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 队列所有元素个数
 @property (nonatomic,assign,readonly)NSInteger size;
+
+/// 队列头结点
 @property(nonatomic,strong,readonly)ObjectType front;
+
+/// 队列总容量
+@property(nonatomic,assign,readonly)int capacity;
+
+/// 队列总使用容量
+@property(nonatomic,assign,readonly)int count;
+
 @end
 
 NS_ASSUME_NONNULL_END

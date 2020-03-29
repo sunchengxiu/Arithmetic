@@ -29,11 +29,21 @@
 
 /// 测试环形数组队列
 - (void)testCircleArrayQueue{
-    
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
     for (int i = 0; i < 10; i ++) {
         NSNumber *num = [NSNumber numberWithInt:i];
-        
+        [queue enqueue:num];
     }
+    int size = queue.size / 2;
+    for (int i = 0; i < size; i ++) {
+        NSNumber *num = [queue dequeue];
+//        NSLog(@"%@",num);
+    }
+    for (int i = 100; i < 103; i ++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [queue enqueue:num];
+    }
+    NSLog(@"%@",queue);
 }
 
 /// 测试数组队列

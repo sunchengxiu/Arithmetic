@@ -8,7 +8,7 @@
 //
 
 #import "SCXCircleArrayQueue.h"
-static NSInteger const defaultCapacity = 20;
+static NSInteger const defaultCapacity = 10;
 typedef void * AnyObject;
 @interface SCXCircleArrayQueue()
 {
@@ -19,7 +19,7 @@ typedef void * AnyObject;
 /// 队列所有元素个数
 @property (nonatomic,assign)NSInteger size;
 ///capacity
-@property (nonatomic,assign) NSInteger capacity;
+@property (nonatomic,assign)int capacity;
 @end
 @implementation SCXCircleArrayQueue
 +(instancetype)arrayQueue{
@@ -43,6 +43,7 @@ typedef void * AnyObject;
      假设环形队列，容量为4，如果0，1，2，3的位置插入了元素，如果这时候删除0，1，位置的元素，那么0，1位置的空间还在没有释放，这时候只不过我们的 frontIdx 位置w后移了，这时候如果我们再添加一个元素4，实际上应该插入到我们的0位置，所以应该为 (_frontIdx + _size ) % _capacity = (2 + 2 )  % 4,size是我们的真实元素个数,_capacity 为容量
      */
     _arrayQueue[(_frontIdx + _size) % _capacity] = obj;
+    _size ++;
     // 动态扩容
 }
 -(id)dequeue{
@@ -64,9 +65,15 @@ typedef void * AnyObject;
 - (BOOL)isEmpty{
     return _size == 0;
 }
+-(int)count{
+    return (int)_arrayQueue.count;
+}
+-(int)capacity{
+    return (int)_capacity;
+}
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];
-    for (int i = 0 ; i < self.size; i ++ ) {
+    for (int i = 0 ; i < _arrayQueue.count; i ++ ) {
         id obj = _arrayQueue[i];
         NSLog(@"%@",obj);
     }
