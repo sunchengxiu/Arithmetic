@@ -58,6 +58,9 @@ static NSInteger const defaultCapacity = 10;
     _arrayQueue[_frontIdx] = [NSNull null];;
     _frontIdx = (_frontIdx + 1) % _capacity;
     _size --;
+    if (_size == 0) {
+        _frontIdx = 0;
+    }
     return obj;
 }
 -(id)front{
@@ -80,7 +83,7 @@ static NSInteger const defaultCapacity = 10;
 /// 动态扩容
 - (void)ensureCapcity:(int)capcity{
     int oldCapcity = _capacity;
-    if (oldCapcity > capcity) {
+    if (oldCapcity >= capcity) {
         return;
     }
     int newCapcity = oldCapcity + (oldCapcity >> 1);
@@ -91,6 +94,11 @@ static NSInteger const defaultCapacity = 10;
     _capacity = newCapcity;
     _arrayQueue = newArr.mutableCopy;
     _frontIdx = 0;
+}
+-(void)removeAllObjects{
+    [_arrayQueue removeAllObjects];
+    _frontIdx = 0;
+    _size = 0;
 }
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];

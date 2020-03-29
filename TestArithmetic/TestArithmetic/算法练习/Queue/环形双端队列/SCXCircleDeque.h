@@ -26,12 +26,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// 默认类初始化方法  ，默认容量为20
 + (instancetype)arrayQueue;
 
-/// 入队
+/// 入队（从尾部）
 /// @param obj 入队对象
 - (void)enqueue:(ObjectType)obj;
 
-/// 出对
+/// 出对（从头部）
 - (id)dequeue;
+
+/// 入队（从头部），如果当前在0位置，则相当于从队尾入队
+/// @param obj 入队对象
+- (void)enqueueFromFront:(ObjectType)obj;
+
+/// 出对（从尾部）
+- (id)dequeueFromTail;
 
 /// 清空队列
 - (void) removeAllObjects;

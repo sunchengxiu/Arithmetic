@@ -42,7 +42,17 @@
         NSNumber *num = [NSNumber numberWithInt:i];
         [queue enqueue:num];
     }
+    
     NSLog(@"%@",queue);
+    for (int i = 210; i < 212; i ++) {
+        [queue enqueueFromFront:[NSNumber numberWithInt:i]];
+    }
+    NSLog(@"%@",queue);
+    size = queue.size;
+    for (int i = 0; i < size; i ++) {
+        NSLog(@"%@",[queue dequeueFromTail]);
+    }
+       NSLog(@"%@",queue);
 }
 /// 测试环形数组队列
 - (void)testCircleArrayQueue{
