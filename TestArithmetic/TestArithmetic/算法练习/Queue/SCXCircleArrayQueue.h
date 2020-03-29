@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak,readonly)ObjectType firstObject;
 
 /// 队列所有元素个数
-@property (nonatomic,assign,readonly)NSInteger size;
+@property (nonatomic,assign,readonly)int size;
 
 /// 队列头结点
 @property(nonatomic,strong,readonly)ObjectType front;

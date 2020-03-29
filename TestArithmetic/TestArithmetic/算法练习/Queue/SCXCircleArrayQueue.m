@@ -17,7 +17,7 @@ typedef void * AnyObject;
 }
 
 /// 队列所有元素个数
-@property (nonatomic,assign)NSInteger size;
+@property (nonatomic,assign)int size;
 ///capacity
 @property (nonatomic,assign)int capacity;
 @end
@@ -31,6 +31,7 @@ typedef void * AnyObject;
 -(instancetype)initWithArrayCapacity:(NSInteger)capacity{
     if (self = [super init]) {
         _capacity = capacity;
+        _size = 0;
         _arrayQueue = [[NSMutableArray alloc] initWithCapacity:capacity];
     }
     return self;
@@ -39,10 +40,13 @@ typedef void * AnyObject;
     if (!obj) {
         return;
     }
+    // 动态扩容
+    [self ensureCapcity:self.size + 1];
     /*
      假设环形队列，容量为4，如果0，1，2，3的位置插入了元素，如果这时候删除0，1，位置的元素，那么0，1位置的空间还在没有释放，这时候只不过我们的 frontIdx 位置w后移了，这时候如果我们再添加一个元素4，实际上应该插入到我们的0位置，所以应该为 (_frontIdx + _size ) % _capacity = (2 + 2 )  % 4,size是我们的真实元素个数,_capacity 为容量
      */
-    _arrayQueue[(_frontIdx + _size) % _capacity] = obj;
+    int index = (_frontIdx + _size) % _capacity;
+    _arrayQueue[index] = obj;
     _size ++;
     // 动态扩容
 }
@@ -59,7 +63,7 @@ typedef void * AnyObject;
 -(id)front{
     return _arrayQueue[_frontIdx];
 }
--(NSInteger)size{
+-(int)size{
     return _size;
 }
 - (BOOL)isEmpty{
@@ -71,11 +75,28 @@ typedef void * AnyObject;
 -(int)capacity{
     return (int)_capacity;
 }
+
+/// 动态扩容
+- (void)ensureCapcity:(int)capcity{
+    int oldCapcity = _capacity;
+    if (oldCapcity > capcity) {
+        return;
+    }
+    int newCapcity = oldCapcity + (oldCapcity >> 1);
+    NSMutableArray *newArr = [[NSMutableArray alloc] initWithCapacity:newCapcity];
+    for (int i = 0 ; i < [self size]; i ++ ) {
+        newArr[i] = _arrayQueue[(i + _frontIdx) % oldCapcity];
+    }
+    _capacity = newCapcity;
+    _arrayQueue = newArr.mutableCopy;
+    _frontIdx = 0;
+}
 -(NSString *)description{
     NSMutableString *str = [NSMutableString string];
+    [str appendFormat:@"[capcity:%d,count:%d,size:%d,front:%d]：\n",self.capacity,_arrayQueue.count,_size,_frontIdx];
     for (int i = 0 ; i < _arrayQueue.count; i ++ ) {
         id obj = _arrayQueue[i];
-        NSLog(@"%@",obj);
+        [str appendFormat:@"%@,",obj];
     }
     return str;
 }

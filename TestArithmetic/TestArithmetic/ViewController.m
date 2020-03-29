@@ -30,7 +30,7 @@
 /// 测试环形数组队列
 - (void)testCircleArrayQueue{
     SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
-    for (int i = 0; i < 10; i ++) {
+    for (int i = 0; i < 9; i ++) {
         NSNumber *num = [NSNumber numberWithInt:i];
         [queue enqueue:num];
     }
