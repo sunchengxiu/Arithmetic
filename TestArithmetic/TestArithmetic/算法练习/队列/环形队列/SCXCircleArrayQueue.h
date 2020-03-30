@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 清空队列
 - (void) removeAllObjects;
 
+/// 队列是否为空
+- (BOOL)isEmpty;
+
 /// 对头
 @property (nonatomic,weak,readonly)ObjectType firstObject;
 

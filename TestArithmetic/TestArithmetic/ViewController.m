@@ -25,8 +25,10 @@
     [super viewDidLoad];
     
     //    [self testBinarySearchTree];
-    [self testCircleDeque];
+    [self testBinarySearchTree];
 }
+
+/// 测试双端队列
 - (void)testCircleDeque{
     SCXCircleDeque *queue = [SCXCircleDeque arrayQueue];
     for (int i = 0; i < 9; i ++) {
@@ -133,20 +135,33 @@
         [tree addObject:data];
     }
     // 前序遍历7,4,2,1,3,5,9,8,11,10,12
-    //    [tree preorderTraversal];
+//    [tree preorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+//                NSLog(@"%@",obj.value);
+//                if ([obj.value isEqualToString:@"5"]) {
+//                    *stop = YES;
+//                }
+//    }];
     // 中序遍历1,2,3,4,5,7,8,9,10,11,12
-    [tree inorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+//    [tree inorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+//        NSLog(@"%@",obj.value);
+//        if ([obj.value isEqualToString:@"2"]) {
+//            *stop = YES;
+//        }
+//    }];
+    // 后续遍历1,3,2,5,4,8,10,12,11,9,7
+//        [tree postorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+//            NSLog(@"%@",obj.value);
+//            if ([obj.value isEqualToString:@"4"]) {
+//                *stop = YES;
+//            }
+//        }];
+    // 层序遍历 7,4,9,2,5,8,11,1,3,10,12
+    [tree levelorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
         NSLog(@"%@",obj.value);
-        if ([obj.value isEqualToString:@"2"]) {
+        if ([obj.value isEqual:@"8"]) {
             *stop = YES;
         }
     }];
-    // 后续遍历1,3,2,5,4,8,10,12,11,9,7
-    //    [tree postorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
-    //        if ([obj.value isEqualToString:@"2"]) {
-    //            *stop = YES;
-    //        }
-    //    }];
 }
 // 环形链表
 - (void)testCircleList{
