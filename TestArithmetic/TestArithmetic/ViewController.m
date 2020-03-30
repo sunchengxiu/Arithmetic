@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     //    [self testBinarySearchTree];
-    [self testBinarySearchTree];
+    [self testArrayQueueTime];
 }
 
 /// 测试双端队列
@@ -100,7 +100,38 @@
         for (int i = 0; i<number; i++) {
             [arrayQueue enqueue:node];
         }
-        [arrayQueue removeAllObjects];
+        for (int i = 0; i<number; i++) {
+            [arrayQueue dequeue];
+        }
+        
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        CFTimeInterval duration = linkTime * 1000.0f;
+        [timeArray addObject:@(duration)];
+        [NSThread sleepForTimeInterval:0.1f];
+    }
+
+    /*
+     NSArray(array: numberArray).value(forKeyPath: "@min.self") // 最小值
+     NSArray(array: numberArray).value(forKeyPath: "@max.self") // 最大值
+     NSArray(array: numberArray).value(forKeyPath: "@avg.self") // 平均值
+     NSArray(array: numberArray).value(forKeyPath: "@sum.self") // 累加的总量
+     NSArray(array: numberArray).value(forKeyPath: "@count.self") // 等同于Array.count
+     */
+    NSLog(@"avg time is %@",[timeArray valueForKeyPath:@"@avg.self"]);
+    
+    NSLog(@"----------------");
+    
+    
+    [timeArray removeAllObjects];
+    for (int i = 0; i<10; i++) {
+        CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+        SCXCircleArrayQueue <SCXBinaryNodeDate *> *arrayQueue = [SCXCircleArrayQueue arrayQueue];
+        for (int i = 0; i<number; i++) {
+            [arrayQueue enqueue:node];
+        }
+        for (int i = 0; i<number; i++) {
+            [arrayQueue dequeue];
+        }
         CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
         CFTimeInterval duration = linkTime * 1000.0f;
         [timeArray addObject:@(duration)];
