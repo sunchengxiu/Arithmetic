@@ -175,4 +175,42 @@
         }
     }
 }
+/*
+ 二叉树的高度，就是根节点离最远叶子节点的高度，可以利用层序遍历来求得二叉树的高度，一层一层遍历，层序遍历一定会遍历到最后一个叶子节点，所以层级也就是高度，原理就是，每一层的节点遍历完了，那么就高度加1，那么怎么判断每一层的高度遍历完了呢？因为我们层序遍历是用队列的方式来实现的，每次都将当前节点的左节点和右节点入队，比如，根节点有两个子节点，当根节点入队的时候，队列里面数量为1，然后我们出对，然后将左右节点加入到队列里面，这是队列里面的节点个数为2，而上次我们出队之后，1-1=0，所以我们的判断安条件就是我们的我们记住上次队列里面节点的个数，当我们这个数值减为0的时候，就代表上一层遍历完了，我们的height就加一。
+ */
+-(int)binaryHeight1{
+    int height = 0;
+    int queueCount = 1;
+    SCXBinaryNode *root = _rootNode;
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    [queue enqueue:root];
+    while (![queue isEmpty]) {
+        SCXBinaryNode *node = [queue dequeue];
+        queueCount -- ;
+        if (node.leftNode && ![node.leftNode isEqual:[NSNull null]]) {
+            [queue enqueue:node.leftNode];
+        }
+        if (node.rightNode && ![node.rightNode isEqual:[NSNull null]] ) {
+            [queue enqueue:node.rightNode];
+        }
+        if (queueCount == 0) {
+            height ++;
+            queueCount = [queue size];
+        }
+    }
+    return height;
+}
+/*
+ 递归实现：
+ 因为我们的高度是求最大的高度，也就是根节点到我们最深的叶子节点的高度，所以其实就是每次找左右节点高度最大的那个节点，一次向下递归，知道到头的那个节点，就是高度，那么从根节点开始找，找他的最远左右节点，就是根节点+最深的那个节点=1+Max(left,right),每次把当前节点当做根节点，知道左右没有左右节点为0；
+ */
+-(int)binaryHeight{
+    return [self height:_rootNode];
+}
+- (int)height:(SCXBinaryNode *)node{
+    if (node == nil) {
+        return 0;
+    }
+    return 1+ MAX([self height:node.leftNode],[self height:node.rightNode]);
+}
 @end

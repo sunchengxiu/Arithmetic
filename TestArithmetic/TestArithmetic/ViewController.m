@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //    [self testBinarySearchTree];
-    [self testArrayQueueTime];
+        [self testBinarySearchTree];
+//    [self testArrayQueueTime];
 }
 
 /// 测试双端队列
@@ -193,6 +193,7 @@
             *stop = YES;
         }
     }];
+    NSLog(@"----%d",[tree binaryHeight]);
 }
 // 环形链表
 - (void)testCircleList{

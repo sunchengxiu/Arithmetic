@@ -27,6 +27,7 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 - (void)removeObject:(id <SCXBinaryTreeProtocol>)obj;
 - (void)containsObject:(id <SCXBinaryTreeProtocol>)obj;
 - (int)size;
+- (int)binaryHeight;
 
 #pragma mark - 遍历
 
