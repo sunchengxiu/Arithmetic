@@ -21,7 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 typedef void (^Iterator)(id obj , BOOL *stop);
 @interface SCXBinarySearchTree : NSObject<SCXBinaryTreeProtocol>
+
+/// 二叉树是否为空
 - (BOOL)isEmpty;
+
+/// 清空二叉树
 - (void)clear;
 - (void)addObject:(id <SCXBinaryTreeProtocol>)obj;
 - (void)removeObject:(id <SCXBinaryTreeProtocol>)obj;

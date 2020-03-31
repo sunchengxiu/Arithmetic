@@ -29,13 +29,6 @@
 @implementation SCXBinarySearchTree{
     int _size;
     SCXBinaryNode *_rootNode;
-    SCXCircleArrayQueue *_queue;
-}
--(instancetype)init{
-    if (self = [super init]) {
-        _queue = [SCXCircleArrayQueue arrayQueue];
-    }
-    return self;
 }
 -(void)addObject:(id<SCXBinaryTreeProtocol>)obj{
     if (![self isEnable:obj]) {
@@ -92,6 +85,10 @@
 }
 -(BOOL)isEmpty{
     return _size == 0 ? YES : NO;
+}
+-(void)clear{
+    _rootNode = nil;
+    _size = 0;
 }
 #pragma mark - 遍历
 - (BOOL)isContinue:(Iterator)iterator rootNode:(SCXBinaryNode *)rootNode stop:(BOOL *)stop{
@@ -160,18 +157,19 @@
 -(void)_levelorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
     if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
     SCXBinaryNode *root = _rootNode;
-    [_queue enqueue:root];
-    while (![_queue isEmpty]) {
-        SCXBinaryNode *node = [_queue dequeue];
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    [queue enqueue:root];
+    while (![queue isEmpty]) {
+        SCXBinaryNode *node = [queue dequeue];
         iterator(node.value,stop);
         if (*stop) {
             return;
         }
         if (node.leftNode && ![node.leftNode isEqual:[NSNull null]]) {
-            [_queue enqueue:node.leftNode];
+            [queue enqueue:node.leftNode];
         }
         if (node.rightNode && ![node.rightNode isEqual:[NSNull null]] ) {
-            [_queue enqueue:node.rightNode];
+            [queue enqueue:node.rightNode];
         }
     }
 }
