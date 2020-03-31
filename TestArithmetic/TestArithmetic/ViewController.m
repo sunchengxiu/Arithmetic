@@ -152,6 +152,8 @@
 - (void)testBinarySearchTree{
     SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
     NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
+//    NSArray *arr = @[@"5",@"2",@"6",@"1"];
+
     /*
      
      7
@@ -159,6 +161,11 @@
      2       5       8       11
      1      3               10      12
      
+     
+                        5
+                    2       6
+                1
+            0
      */
     for (NSString *value in arr) {
         SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
@@ -194,6 +201,7 @@
         }
     }];
     NSLog(@"----%d",[tree binaryHeight]);
+    NSLog(@"~~~~%d",[tree isCompleteBinaryTree]);
 }
 // 环形链表
 - (void)testCircleList{

@@ -14,6 +14,8 @@
 @property(nonatomic,strong)SCXBinaryNode *rightNode;
 @property(nonatomic,strong)SCXBinaryNode *parent;
 - (instancetype)initWithValue:(ObjectType)value parentNode:(SCXBinaryNode *)parent;
+- (BOOL)isLeafNode;
+- (BOOL)hasTwoChildren;
 @end
 @implementation SCXBinaryNode
 
@@ -24,7 +26,12 @@
     }
     return self;
 }
-
+- (BOOL)hasTwoChildren{
+    return (self.leftNode != nil && self.rightNode != nil);
+}
+-(BOOL)isLeafNode{
+    return (self.leftNode == nil && self.rightNode == nil);
+}
 @end
 @implementation SCXBinarySearchTree{
     int _size;
@@ -210,5 +217,33 @@
         return 0;
     }
     return 1+ MAX([self height:node.leftNode],[self height:node.rightNode]);
+}
+-(BOOL)isCompleteBinaryTree{
+    BOOL isComplete = YES;
+    
+    SCXBinaryNode *root = _rootNode;
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    [queue enqueue:root];
+    BOOL isLeaf = NO;
+    while (![queue isEmpty]) {
+        SCXBinaryNode *node = [queue dequeue];
+        if (isLeaf && ![node isLeafNode]) return NO;
+        if (node.leftNode && ![node.leftNode isEqual:[NSNull null]]) {
+            [queue enqueue:node.leftNode];
+        } else {
+            // 如果没有左子树，那么就一定不能有右子树
+            if (node.rightNode && ![node.rightNode isEqual:[NSNull null]]) {
+                return false;
+            }
+        }
+        if (node.rightNode && ![node.rightNode isEqual:[NSNull null]] ) {
+            [queue enqueue:node.rightNode];
+        } else {
+            // 有左子树，但是没有右子树，那么这个节点就一定是叶子节点
+            isLeaf = YES;
+        }
+    }
+    
+    return isComplete;
 }
 @end
