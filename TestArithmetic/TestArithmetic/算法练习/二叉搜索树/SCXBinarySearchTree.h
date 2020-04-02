@@ -48,21 +48,33 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 
 #pragma mark - 遍历
 
-/// 前序遍历
+/// 前序遍历（迭代）
 /// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
 - (void)preorderTraversal:(Iterator)iterator;
 
+/// 前序遍历（递归）
+/// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
+- (void)preorderTraversalWithRecursion:(Iterator)iterator;
 
-/// 中序遍历
+
+/// 中序遍历（迭代）
 /// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
 - (void)inorderTraversal:(Iterator)iterator;
 
+/// 中序遍历（递归）
+/// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
+- (void)inorderTraversalWithRecursion:(Iterator)iterator;
 
-/// 后续遍历
+
+/// 后续遍历（迭代）
 /// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
 - (void)postorderTraversal:(Iterator)iterator;
 
-/// 层序遍历
+/// 后续遍历（递归）
+/// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
+- (void)postorderTraversalWithRecursion:(Iterator)iterator;
+
+/// 层序遍历（迭代）
 /// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
 - (void)levelorderTraversal:(Iterator)iterator;
 

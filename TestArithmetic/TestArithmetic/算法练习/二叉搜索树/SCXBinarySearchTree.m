@@ -8,6 +8,7 @@
 
 #import "SCXBinarySearchTree.h"
 #import "SCXCircleArrayQueue.h"
+#import "SCXStack.h"
 @interface SCXBinaryNode<ObjectType> : NSObject
 @property(nonatomic,strong)ObjectType value;
 @property(nonatomic,strong)SCXBinaryNode *leftNode;
@@ -41,7 +42,7 @@
     if (![self isEnable:obj]) {
         return;
     }
-     // 第一个节点
+    // 第一个节点
     if (_rootNode == nil) {
         _rootNode = [[SCXBinaryNode alloc] initWithValue:obj parentNode:nil];
         _size++;
@@ -118,15 +119,42 @@
     BOOL stop = NO;
     [self _preorderTraversal:_rootNode iterator:iterator stop:&stop] ;
 }
+-(void)preorderTraversalWithRecursion:(Iterator)iterator{
+    BOOL stop = NO;
+    [self _preorderTraversal1:_rootNode iterator:iterator stop:&stop] ;
+}
 // 递归前序遍历
--(void)_preorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+-(void)_preorderTraversal1:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
     if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
     [self iterator:iterator rootNode:rootNode stop:stop];
     if (*stop) return;
     [self _preorderTraversal:rootNode.leftNode iterator:iterator stop:stop];
     [self _preorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
 }
+// 迭代前序遍历
+-(void)_preorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    SCXStack *stack = [[SCXStack alloc] init];
+    SCXBinaryNode *node = rootNode;
+    while (node != nil || ![stack isEmpty]) {
+        if (node != nil) {
+            [self iterator:iterator rootNode:node stop:stop];
+            if (*stop) return;
+            [stack push:node];
+            node = node.leftNode;
+        } else {
+            // 访问右节点，相当于向上回退，后进先出
+            // 相当于出栈一个父节点
+            SCXBinaryNode *parent = [stack pop];
+            node = parent.rightNode;
+        }
+    }
+}
 -(void)inorderTraversal:(Iterator)iterator{
+    BOOL stop = NO;
+    [self _inorderTraversal1:_rootNode iterator:iterator stop:&stop];
+}
+-(void)inorderTraversalWithRecursion:(Iterator)iterator{
     BOOL stop = NO;
     [self _inorderTraversal:_rootNode iterator:iterator stop:&stop];
 }
@@ -137,9 +165,64 @@
     if (*stop) return;
     [self _inorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
 }
+-(void)_inorderTraversal1:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    SCXStack *stack = [[SCXStack alloc] init];
+    SCXBinaryNode *node = rootNode;
+    while (node != nil || ![stack isEmpty]) {
+        if (node != nil) {
+            [stack push:node];
+            node = node.leftNode;
+        } else {
+            SCXBinaryNode *parent = [stack pop];
+            // 左节点到头了，开始打印做孩子，然后找到父节点
+            [self iterator:iterator rootNode:parent stop:stop];
+            if (*stop) return;
+            node = parent.rightNode;
+        }
+    }
+}
 -(void)postorderTraversal:(Iterator)iterator{
     BOOL stop = NO;
+    [self _postorderTraversal1:_rootNode iterator:iterator stop:&stop];
+}
+-(void)postorderTraversalWithRecursion:(Iterator)iterator{
+    BOOL stop = NO;
     [self _postorderTraversal:_rootNode iterator:iterator stop:&stop];
+}
+-(void)_postorderTraversal1:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
+    if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
+    SCXStack *stack = [[SCXStack alloc] init];
+    SCXBinaryNode *node = rootNode;
+    SCXBinaryNode *preNode = nil;
+    /*
+     因为后序遍历顺序为左右根，根节点u最后一个访问，所以我们需要先访问所有的左节点，然后打印，然后找到右子树，然后用同样的规则继续查找，所以我们就需要注意根节点的打印，需要在右节点访问完之后才可以。
+     */
+    while (node != nil || ![stack isEmpty]) {
+        // 遍历左右左节点放进去
+        while (node != nil) {
+            [stack push:node];
+            node = node.leftNode;
+        }
+        if (![stack isEmpty]) {
+            node = [stack pop];
+            // 左子树访问完了，看是否有右子树，如果没有，打印当前节点,因为没有右节点，那么根节点一定在右节点之后
+            // 如果右节点被访问过，那么当前根节点也允许输出,因为右节点访问完了，该访问根节点了
+            // 右子树也访问完了，从最后一个右子树往上弹出。
+            if (!node.rightNode || node.rightNode == preNode) {
+                [self iterator:iterator rootNode:node stop:stop];
+                if (*stop) return;
+                preNode = node;
+                // 防止又进入一次,因为左节点已经访问完了
+                node = nil;
+            } else {
+                // 当前节点入栈
+                [stack push:node];
+                // 右子树循环
+                node = node.rightNode;
+            }
+        }
+    }
 }
 -(void)_postorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
     if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
@@ -152,9 +235,9 @@
  使用队列的来实现层序遍历，因为我们是一层一层遍历的，在树的上面的节点是先放到二叉树上面的，然后访问的时候，也是从上面开始访问，并且是先访问根节点，然后左子节点右子节点
  1. 将根节点入队
  2. 循环执行如下操作
-  2.1 首先将对头节点 A 出对，访问出对。
-  2.2 然后将 A 的左子节点入队，
-  2.4 然后将 A 的右子节点入队
+ 2.1 首先将对头节点 A 出对，访问出对。
+ 2.2 然后将 A 的左子节点入队，
+ 2.4 然后将 A 的右子节点入队
  
  */
 -(void)levelorderTraversal:(Iterator)iterator{
