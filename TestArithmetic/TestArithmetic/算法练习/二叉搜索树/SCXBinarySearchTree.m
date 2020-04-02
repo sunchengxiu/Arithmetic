@@ -98,6 +98,21 @@
     _rootNode = nil;
     _size = 0;
 }
+- (SCXBinaryNode *)node:(id <SCXBinaryTreeProtocol>)value{
+    SCXBinaryNode *root = _rootNode;
+    while (root != nil) {
+        int cmp = [value compare:root.value];
+        if (cmp == 0) {
+            return root;
+        }
+        if (cmp > 0) {
+            root = root.rightNode;
+        } else {
+            root = root.leftNode;
+        }
+    }
+    return nil;
+}
 #pragma mark - 遍历
 - (BOOL)isContinue:(Iterator)iterator rootNode:(SCXBinaryNode *)rootNode stop:(BOOL *)stop{
     if (rootNode == nil || !iterator || *stop) {
@@ -369,5 +384,49 @@
         }
     }
     return node.value;
+}
+/*
+ 前驱结点：中序遍历时候的前一个节点。
+ 
+ 二叉搜索树，前驱结点，是他的左子树的最大的那个节点，也就是一定在最右边，一直往右找，如果不是二叉搜索树，那也使用，因为他的前驱结点，是中序遍历的前一个节点，中序遍历的左根右，也是最后遍历右节点，所以，如果这个节点的左子树存在，那么就找这个左子树沿着右子树找到最后一个就行了。
+ 
+ pre = node.left.right.right.right.right... 一直到 null
+ 
+ 如果node的left为空，那么他的额前驱结点为，一直往上找父节点，直到当前节点为父节点的右子树，就停止。那么这个父节点就为前驱结点，循环往上找，知道当前node为node.parent的right就停止,那么这个node就为我们要找的，如果一直晚上找，突然发现父节点为空了，那么这个节点就没有前驱结点。
+ 
+ 如果这个节点没有左子树也没有父节点，那么这个节点没有前驱结点
+ */
+-(id<SCXBinaryTreeProtocol>)preNode:(id<SCXBinaryTreeProtocol>)value{
+    if (!value) {
+        return nil;
+    }
+    SCXBinaryNode *node = [self node:value];
+    if (!node) {
+        return nil;
+    }
+    // 如果存在左子树
+    if (node.leftNode) {
+        node =node.leftNode;
+        // 找到最后一个右节点
+        while (node.rightNode) {
+            node = node.rightNode;
+        }
+        return node.value;
+    }
+    // 没有左子树，向上找
+    while (node.parent && node == node.parent.leftNode) {
+        node = node.parent;
+    }
+    
+    // 当前节点为父节点的右节点，也就是第一个比自己小的,也就是找到这样的节点 1 < current < 3,如果当前为2.
+    /*
+     1
+     3
+     2
+     
+     找到2的前驱节点，为1.
+     
+     */
+    return node.parent.value;
 }
 @end

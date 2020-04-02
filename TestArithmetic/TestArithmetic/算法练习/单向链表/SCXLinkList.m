@@ -80,6 +80,9 @@ typedef struct ListNode{
         return nil;
     }
     if(index == 0){
+        if (_head == NULL) {
+            return nil;
+        }
          Node *preNode = _head;
         _head = _head->next;
         _size --;

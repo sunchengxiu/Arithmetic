@@ -78,6 +78,9 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 /// @param iterator 通过遍历器返回对应的值，如果stop设置为YES，则停止遍历
 - (void)levelorderTraversal:(Iterator)iterator;
 
+/// 前驱节点
+- (id <SCXBinaryTreeProtocol>)preNode:(id <SCXBinaryTreeProtocol>)node;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -34,6 +34,35 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+- (void)testPreNode{
+    SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
+    NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
+    //    NSArray *arr = @[@"4",@"2",@"7",@"1",@"3",@"6",@"9"];
+    
+    /*
+     
+     7
+     4                9
+     2       5       8       11
+     1      3               10      12
+     
+     
+     5
+     2       6
+     1
+     0
+     */
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+        if ([value isEqualToString:@"3"]) {
+            NSLog(@"%@",[tree preNode:data]);
+        }
+        
+    }
+    
+}
 // 层序遍历递归
 - (void)testLevel{
     SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
