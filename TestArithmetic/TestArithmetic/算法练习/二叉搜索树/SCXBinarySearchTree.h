@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 /// 遍历器，每次回调遍历的值和允许手动停止
 typedef void (^Iterator)(id obj , BOOL *stop);
-@interface SCXBinarySearchTree : NSObject<SCXBinaryTreeProtocol>
+@interface SCXBinarySearchTree : NSObject
 
 /// 二叉树是否为空
 - (BOOL)isEmpty;
@@ -29,7 +29,7 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 
 /// 是否包含某个节点
 /// @param obj 某个节点
-- (void)containsObject:(id <SCXBinaryTreeProtocol>)obj;
+- (BOOL)containsObject:(id <SCXBinaryTreeProtocol>)obj;
 
 /// 二叉树已经存在节点个数
 - (int)size;

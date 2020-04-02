@@ -98,6 +98,10 @@
     _rootNode = nil;
     _size = 0;
 }
+-(BOOL)containsObject:(id<SCXBinaryTreeProtocol>)obj{
+    SCXBinaryNode *node = [self node:obj];
+    return node != nil;
+}
 - (SCXBinaryNode *)node:(id <SCXBinaryTreeProtocol>)value{
     SCXBinaryNode *root = _rootNode;
     while (root != nil) {
