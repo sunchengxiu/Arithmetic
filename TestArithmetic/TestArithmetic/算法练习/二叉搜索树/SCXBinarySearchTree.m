@@ -246,4 +246,45 @@
     
     return isComplete;
 }
+-(id<SCXBinaryTreeProtocol>)invertTree{
+    return [self _invertTree:_rootNode];
+}
+
+/// 递归实现反转二叉树
+-(id<SCXBinaryTreeProtocol>)_invertTree1:(SCXBinaryNode *)node{
+    if (node == nil) {
+        return nil;
+    }
+    if (node.leftNode != nil || node.rightNode != nil) {
+        SCXBinaryNode *tmp = node.leftNode;
+        node.leftNode = node.rightNode;
+        node.rightNode = tmp;
+    }
+    [self _invertTree:node.leftNode];
+    [self _invertTree:node.rightNode];
+    return node.value;
+}
+/// 迭代实现反转二叉树
+-(id<SCXBinaryTreeProtocol>)_invertTree:(SCXBinaryNode *)node{
+    if (node == nil) {
+        return nil;
+    }
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    [queue enqueue:_rootNode];
+    while (![queue isEmpty]) {
+        SCXBinaryNode *node = [queue dequeue];
+        if (node.leftNode || node.rightNode) {
+            SCXBinaryNode *tmp = node.leftNode;
+            node.leftNode = node.rightNode;
+            node.rightNode = tmp;
+        }
+        if (node.leftNode) {
+            [queue enqueue:node.leftNode];
+        }
+        if (node.rightNode) {
+            [queue enqueue:node.rightNode];
+        }
+    }
+    return node.value;
+}
 @end

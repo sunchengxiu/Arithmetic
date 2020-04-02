@@ -43,6 +43,9 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 /// 度为1的节点要么是1个要么是0个
 - (BOOL)isCompleteBinaryTree;
 
+/// 反转二叉树
+- (id <SCXBinaryTreeProtocol>)invertTree;
+
 #pragma mark - 遍历
 
 /// 前序遍历

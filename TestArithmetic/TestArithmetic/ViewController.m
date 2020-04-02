@@ -151,8 +151,8 @@
 // 二叉搜索树
 - (void)testBinarySearchTree{
     SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
-    NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
-//    NSArray *arr = @[@"5",@"2",@"6",@"1"];
+//    NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
+    NSArray *arr = @[@"4",@"2",@"7",@"1",@"3",@"6",@"9"];
 
     /*
      
@@ -202,6 +202,11 @@
     }];
     NSLog(@"----%d",[tree binaryHeight]);
     NSLog(@"~~~~%d",[tree isCompleteBinaryTree]);
+    [tree invertTree];
+    [tree levelorderTraversal:^(SCXBinaryNodeDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj.value);
+       
+    }];
 }
 // 环形链表
 - (void)testCircleList{
