@@ -34,6 +34,69 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+- (void)testRemoveObj{
+    SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
+    NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];
+    //    NSArray *arr = @[@"4",@"2",@"7",@"1",@"3",@"6",@"9"];
+    
+    /*
+     
+     7
+     4                9
+     2       5       8       11
+     1      3               10      12
+     
+     
+     5
+     2       6
+     1
+     0
+     */
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+    }
+    SCXBinaryData *data = [[SCXBinaryData alloc] init];
+    data.value = @"5";
+    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+    NSLog(@"----------");
+    [tree removeObject:data];
+    //    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+    //        NSLog(@"%@",obj);
+    //    }];
+    data.value = @"2";
+    [tree removeObject:data];
+    //       [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+    //           NSLog(@"%@",obj);
+    //       }];
+    data.value = @"1";
+    [tree removeObject:data];
+    // 3，4，7，8，9，10，11，12
+    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+    data.value = @"7";
+    [tree removeObject:data];
+    // 3，4，8，9，10，11，12
+    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+    data.value = @"4";
+    [tree removeObject:data];
+    // 3，8，9，10，11，12
+    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+    data.value = @"3";
+    [tree removeObject:data];
+    // 8，9，10，11，12
+    [tree inorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+}
 - (void)testPreNode{
     SCXBinarySearchTree *tree = [[SCXBinarySearchTree alloc] init];
     NSArray *arr = @[@"7",@"4",@"2",@"1",@"3",@"5",@"9",@"8",@"11",@"10",@"12"];

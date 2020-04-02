@@ -5,7 +5,7 @@
 //  Created by 孙承秀 on 2020/3/28.
 //  Copyright © 2020 RongCloud. All rights reserved.
 //
-
+//https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 #import <Foundation/Foundation.h>
 #import "SCXBinaryTreeProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
@@ -80,6 +80,9 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 
 /// 前驱节点
 - (id <SCXBinaryTreeProtocol>)preNode:(id <SCXBinaryTreeProtocol>)node;
+
+/// 后继节点
+- (id <SCXBinaryTreeProtocol>)succNode:(id <SCXBinaryTreeProtocol>)node;
 
 @end
 

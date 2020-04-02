@@ -76,7 +76,52 @@
     }
     _size ++;
 }
-
+-(void)removeObject:(id<SCXBinaryTreeProtocol>)obj{
+    if (![self isEnable:obj]) {
+        return;
+    }
+    SCXBinaryNode *node = [self node:obj];
+    if (node) {
+        // 移除度为2的节点
+        if ([node hasTwoChildren]) {
+            // 找到前驱节点
+            SCXBinaryNode *preNode = [self _preNode:obj];
+            // 用前驱节点的值，覆盖当前节点
+            node.value = preNode.value;
+            // 移除前驱结点,相当于移除度为1的节点
+            node = preNode;
+        }
+        
+        // 移除度为1的节点
+        SCXBinaryNode *child = node.leftNode ? node.leftNode : node.rightNode;
+        if (child != nil) { // 说明度为1
+            child.parent = node.parent;
+            if (node.parent == nil) {
+                // 度为1的根节点
+                _rootNode = child;
+            } else if (node == node.parent.leftNode) {
+                // 左节点接上
+                node.parent.leftNode = child;
+            } else if (node == node.parent.rightNode){
+                // 右节点接上
+                node.parent.rightNode = child;
+            }
+            
+        } else if (node.parent == nil){
+            // 根节点
+            _rootNode = nil;
+        } else {
+            // 叶子节点
+            if (node.parent.leftNode == node) {
+                node.parent.leftNode = nil;
+            } else {
+                node.parent.rightNode = nil;
+            }
+        }
+    }
+    
+    
+}
 - (BOOL)isEnable:(id<SCXBinaryTreeProtocol>)obj{
     if (!obj) {
         return NO;
@@ -103,6 +148,9 @@
     return node != nil;
 }
 - (SCXBinaryNode *)node:(id <SCXBinaryTreeProtocol>)value{
+    if (![self isEnable:value]) {
+        return nil;
+    }
     SCXBinaryNode *root = _rootNode;
     while (root != nil) {
         int cmp = [value compare:root.value];
@@ -432,5 +480,38 @@
      
      */
     return node.parent.value;
+}
+-(SCXBinaryNode *)_preNode:(id<SCXBinaryTreeProtocol>)value{
+    if (!value) {
+        return nil;
+    }
+    SCXBinaryNode *node = [self node:value];
+    if (!node) {
+        return nil;
+    }
+    // 如果存在左子树
+    if (node.leftNode) {
+        node =node.leftNode;
+        // 找到最后一个右节点
+        while (node.rightNode) {
+            node = node.rightNode;
+        }
+        return node;
+    }
+    // 没有左子树，向上找
+    while (node.parent && node == node.parent.leftNode) {
+        node = node.parent;
+    }
+    
+    // 当前节点为父节点的右节点，也就是第一个比自己小的,也就是找到这样的节点 1 < current < 3,如果当前为2.
+    /*
+     1
+     3
+     2
+     
+     找到2的前驱节点，为1.
+     
+     */
+    return node.parent;
 }
 @end
