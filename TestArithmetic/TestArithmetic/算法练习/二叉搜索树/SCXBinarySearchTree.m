@@ -9,15 +9,8 @@
 #import "SCXBinarySearchTree.h"
 #import "SCXCircleArrayQueue.h"
 #import "SCXStack.h"
-@interface SCXBinaryNode<ObjectType> : NSObject
-@property(nonatomic,strong)ObjectType value;
-@property(nonatomic,strong)SCXBinaryNode *leftNode;
-@property(nonatomic,strong)SCXBinaryNode *rightNode;
-@property(nonatomic,strong)SCXBinaryNode *parent;
-- (instancetype)initWithValue:(ObjectType)value parentNode:(SCXBinaryNode *)parent;
-- (BOOL)isLeafNode;
-- (BOOL)hasTwoChildren;
-@end
+#import "SCXBinarySearchTree+Private.h"
+
 @implementation SCXBinaryNode
 
 -(instancetype)initWithValue:(id)value parentNode:(SCXBinaryNode *)parent{
@@ -46,6 +39,7 @@
     if (_rootNode == nil) {
         _rootNode = [[SCXBinaryNode alloc] initWithValue:obj parentNode:nil];
         _size++;
+        [self addNewNodeAfter:_rootNode];
         return;
     }
     SCXBinaryNode *currentNode = _rootNode;
@@ -75,6 +69,10 @@
         parent.leftNode = newNode;
     }
     _size ++;
+    [self addNewNodeAfter:newNode];
+}
+-(void)addNewNodeAfter:(SCXBinaryNode *)node{
+    
 }
 -(void)removeObject:(id<SCXBinaryTreeProtocol>)obj{
     if (![self isEnable:obj]) {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E896259E2435BB0100811EA1 /* SCXStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E896259D2435BB0100811EA1 /* SCXStack.m */; };
+		E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E4392460582200D81AC1 /* SCXAVLTree.m */; };
 		E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750A242F32A600F4F8F9 /* AppDelegate.m */; };
 		E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750D242F32A600F4F8F9 /* SceneDelegate.m */; };
 		E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67510242F32A600F4F8F9 /* ViewController.m */; };
@@ -52,6 +53,9 @@
 		E88033A42430CF29002783A2 /* SCXCircleDeque.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXCircleDeque.m; sourceTree = "<group>"; };
 		E896259C2435BB0100811EA1 /* SCXStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXStack.h; sourceTree = "<group>"; };
 		E896259D2435BB0100811EA1 /* SCXStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXStack.m; sourceTree = "<group>"; };
+		E8D9E4382460582200D81AC1 /* SCXAVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXAVLTree.h; sourceTree = "<group>"; };
+		E8D9E4392460582200D81AC1 /* SCXAVLTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXAVLTree.m; sourceTree = "<group>"; };
+		E8D9E43B2460584200D81AC1 /* SCXBinarySearchTree+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCXBinarySearchTree+Private.h"; sourceTree = "<group>"; };
 		E8F67506242F32A600F4F8F9 /* TestArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F67509242F32A600F4F8F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8F6750A242F32A600F4F8F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -154,6 +158,15 @@
 			path = "栈";
 			sourceTree = "<group>";
 		};
+		E8D9E4372460571100D81AC1 /* AVL二叉平衡搜索树 */ = {
+			isa = PBXGroup;
+			children = (
+				E8D9E4382460582200D81AC1 /* SCXAVLTree.h */,
+				E8D9E4392460582200D81AC1 /* SCXAVLTree.m */,
+			);
+			path = "AVL二叉平衡搜索树";
+			sourceTree = "<group>";
+		};
 		E8F674FD242F32A600F4F8F9 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +234,7 @@
 				E8F67546242F32E000F4F8F9 /* 单向链表 */,
 				E8F67549242F32E000F4F8F9 /* 单循环链表 */,
 				E8F6754C242F32E000F4F8F9 /* 二叉搜索树 */,
+				E8D9E4372460571100D81AC1 /* AVL二叉平衡搜索树 */,
 			);
 			path = "算法练习";
 			sourceTree = "<group>";
@@ -257,6 +271,7 @@
 			children = (
 				E8F6754D242F32E000F4F8F9 /* SCXBinarySearchTree.h */,
 				E8F6754E242F32E000F4F8F9 /* SCXBinarySearchTree.m */,
+				E8D9E43B2460584200D81AC1 /* SCXBinarySearchTree+Private.h */,
 				E8F6755D242F368100F4F8F9 /* SCXBinaryTreeProtocol.h */,
 				E8F675B1242F387400F4F8F9 /* SCXBinaryData.h */,
 				E8F675B2242F387400F4F8F9 /* SCXBinaryData.m */,
@@ -446,6 +461,7 @@
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
 				E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */,
+				E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */,
 				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */,
