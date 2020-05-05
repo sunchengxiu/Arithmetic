@@ -10,7 +10,8 @@
 #import "SCXBinaryTreeProtocol.h"
 #import "SCXBinarySearchTree.h"
 NS_ASSUME_NONNULL_BEGIN
-@interface SCXBinaryNode<ObjectType> : NSObject
+// __contravariant
+@interface SCXBinaryNode<__contravariant ObjectType> : NSObject
 @property(nonatomic,strong)ObjectType value;
 @property(nonatomic,strong)SCXBinaryNode *leftNode;
 @property(nonatomic,strong)SCXBinaryNode *rightNode;
@@ -18,9 +19,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithValue:(ObjectType)value parentNode:(SCXBinaryNode *)parent;
 - (BOOL)isLeafNode;
 - (BOOL)hasTwoChildren;
+- (BOOL)isLeftChild;
+- (BOOL)isRightChild;
 @end
+@interface SCXAVLNode<__covariant ObjectType> : SCXBinaryNode
+@property(nonatomic,strong)SCXBinaryNode *rootNode;
+@property(nonatomic,assign)NSInteger height;
+// 平衡因子
+- (NSInteger)blanceFactor;
+@end
+
 @interface SCXBinarySearchTree ()
 - (void)addNewNodeAfter:(SCXBinaryNode *)node;
+- (SCXBinaryNode *)createNodeWithValue:(id)value parentNode:(SCXBinaryNode *)parent;
 @end
 
 NS_ASSUME_NONNULL_END

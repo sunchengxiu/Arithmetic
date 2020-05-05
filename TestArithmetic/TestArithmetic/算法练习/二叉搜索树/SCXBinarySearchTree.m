@@ -11,6 +11,7 @@
 #import "SCXStack.h"
 #import "SCXBinarySearchTree+Private.h"
 
+
 @implementation SCXBinaryNode
 
 -(instancetype)initWithValue:(id)value parentNode:(SCXBinaryNode *)parent{
@@ -26,10 +27,18 @@
 -(BOOL)isLeafNode{
     return (self.leftNode == nil && self.rightNode == nil);
 }
+-(BOOL)isLeftChild{
+    return self.parent && self == self.parent.leftNode;
+}
+-(BOOL)isRightChild{
+    return self.parent && self == self.parent.rightNode;
+}
+@end
+@interface SCXBinarySearchTree()
+@property(nonatomic,strong)SCXBinaryNode *rootNode;
 @end
 @implementation SCXBinarySearchTree{
     int _size;
-    SCXBinaryNode *_rootNode;
 }
 -(void)addObject:(id<SCXBinaryTreeProtocol>)obj{
     if (![self isEnable:obj]) {
@@ -37,7 +46,7 @@
     }
     // 第一个节点
     if (_rootNode == nil) {
-        _rootNode = [[SCXBinaryNode alloc] initWithValue:obj parentNode:nil];
+        _rootNode = [self createNodeWithValue:obj parentNode:nil];
         _size++;
         [self addNewNodeAfter:_rootNode];
         return;
@@ -60,7 +69,7 @@
             return;
         }
     }
-    SCXBinaryNode *newNode = [[SCXBinaryNode alloc] initWithValue:obj parentNode:parent];
+    SCXBinaryNode *newNode = [self createNodeWithValue:obj parentNode:parent];
     // 最后一次比较如果大于0，说明插入到右节点，反之左节点
     if (cmp > 0) {
         // 插入到右节点
@@ -70,6 +79,9 @@
     }
     _size ++;
     [self addNewNodeAfter:newNode];
+}
+- (SCXBinaryNode *)createNodeWithValue:(id)value parentNode:(SCXBinaryNode *)parent{
+    return [[SCXBinaryNode alloc] initWithValue:value parentNode:parent];
 }
 -(void)addNewNodeAfter:(SCXBinaryNode *)node{
     
