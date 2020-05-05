@@ -86,6 +86,9 @@
 -(void)addNewNodeAfter:(SCXBinaryNode *)node{
     
 }
+- (void)removeNodeAfter:(SCXBinaryNode *)node{
+    
+}
 -(void)removeObject:(id<SCXBinaryTreeProtocol>)obj{
     if (![self isEnable:obj]) {
         return;
@@ -116,10 +119,13 @@
                 // 右节点接上
                 node.parent.rightNode = child;
             }
-            
+            // AVL 树平衡
+            [self removeNodeAfter:node];
         } else if (node.parent == nil){
             // 根节点
             _rootNode = nil;
+            // AVL 树平衡
+            [self removeNodeAfter:node];
         } else {
             // 叶子节点
             if (node.parent.leftNode == node) {
@@ -127,6 +133,8 @@
             } else {
                 node.parent.rightNode = nil;
             }
+            // AVL 树平衡
+            [self removeNodeAfter:node];
         }
     }
     

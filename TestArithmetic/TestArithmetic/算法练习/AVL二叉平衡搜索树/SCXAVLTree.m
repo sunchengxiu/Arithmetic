@@ -57,6 +57,7 @@
 -(SCXBinaryNode *)createNodeWithValue:(id)value parentNode:(SCXBinaryNode *)parent{
     return [[SCXAVLNode alloc] initWithValue:value parentNode:parent];
 }
+// AVL 二叉搜索树添加节点后，平衡
 -(void)addNewNodeAfter:(SCXBinaryNode *)node{
     SCXAVLNode *avlNode = (SCXAVLNode *)node;
     while ((avlNode = (SCXAVLNode *)avlNode.parent) != nil) {
@@ -71,6 +72,22 @@
         }
     }
 }
+// AVL 树删除节点后，平衡
+-(void)removeNodeAfter:(SCXBinaryNode *)node{
+    SCXAVLNode *avlNode = (SCXAVLNode *)node;
+    while ((avlNode = (SCXAVLNode *)avlNode.parent) != nil) {
+        if ([self isBlanced:avlNode]) {
+            // 平衡,需要更新高度
+            [self updateNodeHeight:avlNode];
+        } else{
+            // 恢复平衡
+            // 第一个不平衡节点，此节点高度最低，因为是第一个被发现。
+            [self reBlance:avlNode];
+            // 这里不能 break ，因为删除有可能导致整棵树都失去平衡。
+        }
+    }
+}
+
 - (void)reBlance:(SCXAVLNode *)node{
     // 判断是 LL，RR，LR，RL
     // 找到当前节点左右子树最高的那个

@@ -34,6 +34,25 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+- (void)testAVLTreeRemoveNode{
+    SCXAVLTree *tree = [[SCXAVLTree alloc] init];
+    NSArray *arr = @[@"8",@"7",@"9",@"3",@"2",@"6",@"10"];
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+    }
+    SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+    data.value = @"8";
+    [tree removeObject:data];
+    data.value = @"9";
+    [tree removeObject:data];
+    data.value = @"10";
+    [tree removeObject:data];
+    [tree levelorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+}
 - (void)testAVLTree{
     SCXAVLTree *tree = [[SCXAVLTree alloc] init];
     NSArray *arr = @[@"8",@"7",@"9",@"3",@"2",@"6",@"10",@"11",@"100",@"150",@"99",@"200",@"300",@"140"];
