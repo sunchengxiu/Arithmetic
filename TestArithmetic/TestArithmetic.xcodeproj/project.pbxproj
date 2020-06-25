@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8656CB824A492040017C501 /* SCXRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8656CB724A492040017C501 /* SCXRBTree.m */; };
 		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E896259E2435BB0100811EA1 /* SCXStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E896259D2435BB0100811EA1 /* SCXStack.m */; };
 		E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E4392460582200D81AC1 /* SCXAVLTree.m */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8656CB624A492040017C501 /* SCXRBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXRBTree.h; sourceTree = "<group>"; };
+		E8656CB724A492040017C501 /* SCXRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXRBTree.m; sourceTree = "<group>"; };
 		E88033A32430CF29002783A2 /* SCXCircleDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleDeque.h; sourceTree = "<group>"; };
 		E88033A42430CF29002783A2 /* SCXCircleDeque.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXCircleDeque.m; sourceTree = "<group>"; };
 		E896259C2435BB0100811EA1 /* SCXStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXStack.h; sourceTree = "<group>"; };
@@ -122,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8656CB524A479910017C501 /* 红黑树 */ = {
+			isa = PBXGroup;
+			children = (
+				E8656CB624A492040017C501 /* SCXRBTree.h */,
+				E8656CB724A492040017C501 /* SCXRBTree.m */,
+			);
+			path = "红黑树";
+			sourceTree = "<group>";
+		};
 		E88033A62430CFF2002783A2 /* 数组队列 */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +240,7 @@
 		E8F67540242F32E000F4F8F9 /* 算法练习 */ = {
 			isa = PBXGroup;
 			children = (
+				E8656CB524A479910017C501 /* 红黑树 */,
 				E896259B2435BA6F00811EA1 /* 栈 */,
 				E8F675B724306EB700F4F8F9 /* 队列 */,
 				E8F67541242F32E000F4F8F9 /* 双向链表 */,
@@ -466,6 +479,7 @@
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */,
 				E8F675BD24306EE300F4F8F9 /* SCXCircleArrayQueue.m in Sources */,
+				E8656CB824A492040017C501 /* SCXRBTree.m in Sources */,
 				E896259E2435BB0100811EA1 /* SCXStack.m in Sources */,
 				E8F6751C242F32A800F4F8F9 /* main.m in Sources */,
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,

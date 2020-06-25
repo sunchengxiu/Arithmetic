@@ -16,6 +16,7 @@
 #import "SCXCircleArrayQueue.h"
 #import "SCXCircleDeque.h"
 #import "SCXAVLTree.h"
+#import "SCXRBTree.h"
 @interface TestArithmeticTests : XCTestCase
 
 @end
@@ -33,6 +34,19 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+// 红黑树测试
+- (void)testRBTreeAdd{
+    SCXRBTree *tree = [[SCXRBTree alloc] init];
+    NSArray *arr = @[@"55", @"87", @"56", @"74", @"96", @"22", @"62", @"20", @"70", @"68", @"90", @"50"];
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+    }
+    [tree levelorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
 }
 - (void)testAVLTreeRemoveNode{
     SCXAVLTree *tree = [[SCXAVLTree alloc] init];

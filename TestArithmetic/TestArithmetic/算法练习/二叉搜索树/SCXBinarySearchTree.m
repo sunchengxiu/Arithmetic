@@ -33,6 +33,15 @@
 -(BOOL)isRightChild{
     return self.parent && self == self.parent.rightNode;
 }
+-(SCXBinaryNode *)sibling{
+    if ([self isLeftChild]) {
+        return self.parent.rightNode;
+    }
+    if ([self isRightChild]) {
+        return self.parent.leftNode;
+    }
+    return nil;;
+}
 @end
 @interface SCXBinarySearchTree()
 @property(nonatomic,strong)SCXBinaryNode *rootNode;
@@ -336,6 +345,15 @@
     [queue enqueue:root];
     while (![queue isEmpty]) {
         SCXBinaryNode *node = [queue dequeue];
+        if ([node isKindOfClass:[SCXRBNode class]]) {
+            SCXRBNode *rb = (SCXRBNode *)node;
+            // 红黑树颜色打印测试
+//            if (rb.color == SCXRBColorTypeRed) {
+//                NSLog(@"red_");
+//            } else {
+//                NSLog(@"black_");
+//            }
+        }
         iterator(node.value,stop);
         if (*stop) {
             return;
