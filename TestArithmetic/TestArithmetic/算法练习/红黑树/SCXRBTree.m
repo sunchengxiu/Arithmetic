@@ -165,14 +165,14 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
     }
 }
 
--(void)removeNodeAfter:(SCXBinaryNode *)node{
+-(void)removeNodeAfter:(SCXBinaryNode *)bnode{
     /*
      https://www.jianshu.com/p/b56f4115097c
      node 传过来，可能是被删除的节点，也可能是替代的节点
      1. 如果删除了一个红色的叶子节点，那么对整棵树没有影响，直接删除就可以了，对删除的这个节点是否染色都可以，因为他要被删除了
      2. 如果替代的节点为红色，就需要将替代的节点染成黑色
      */
-    SCXRBNode *rbnode = (SCXRBNode *)node;
+    SCXRBNode *rbnode = (SCXRBNode *)bnode;
     if (IsRed(rbnode)) {
         Black(rbnode);
         return;
@@ -186,7 +186,7 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
     
     // 如果被删除的节点是黑色叶子节点，那么会导致下溢
     // 判断被删除的节点是左还是右
-    BOOL isLeft = parent.leftNode == nil || [node isLeafNode];
+    BOOL isLeft = parent.leftNode == nil || [rbnode isLeftChild];
     // 找到兄弟节点
     SCXRBNode *sibling = isLeft ? (SCXRBNode *)parent.rightNode : (SCXRBNode *)parent.leftNode;
     if (isLeft) {
@@ -199,9 +199,9 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
         }
 
         if (IsBlack(sibling.leftNode) && IsBlack(sibling.rightNode)) {
+            BOOL isBlack = IsBlack(parent);
             Black(parent);
             Red(sibling);
-            BOOL isBlack = IsBlack(parent);
             if (isBlack) {
                 [self removeNodeAfter:parent];
             }
@@ -211,7 +211,7 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
                 sibling = (SCXRBNode *)parent.rightNode;
             }
             Color(sibling, IsColor(parent));
-            Black(sibling.leftNode);
+            Black(sibling.rightNode);
             Black(parent);
             [self leftRote:parent];
         }
@@ -237,9 +237,9 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
             // 父节点染黑
             // 兄弟节点染红
             // 如果父节点为黑色，向下合并的时候会出现下溢
+            BOOL isBlack = IsBlack(parent);
             Black(parent);
             Red(sibling);
-            BOOL isBlack = IsBlack(parent);
             if (isBlack) {
                 [self removeNodeAfter:parent];
             }

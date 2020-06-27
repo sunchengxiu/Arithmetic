@@ -62,7 +62,8 @@
     [tree removeObject:data];
     data.value = @"87";
     [tree removeObject:data];
-
+    data.value = @"56";
+    [tree removeObject:data];
     [tree levelorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSLog(@"%@",obj);
     }];

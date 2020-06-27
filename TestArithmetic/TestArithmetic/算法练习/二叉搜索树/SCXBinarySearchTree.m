@@ -107,7 +107,7 @@
         // 移除度为2的节点
         if ([node hasTwoChildren]) {
             // 找到前驱节点
-            SCXBinaryNode *preNode = [self _preNode:obj];
+            SCXBinaryNode *preNode = [self _successorNode:obj];
             // 用前驱节点的值，覆盖当前节点
             node.value = preNode.value;
             // 移除前驱结点,相当于移除度为1的节点
@@ -549,5 +549,47 @@
      
      */
     return node.parent;
+}
+-(SCXBinaryNode *)_successorNode:(id<SCXBinaryTreeProtocol>)value{
+    if (!value) {
+        return nil;
+    }
+    SCXBinaryNode *node = [self node:value];
+    if (!node) {
+        return nil;
+    }
+    SCXBinaryNode *afterNode = node.rightNode;
+    if (afterNode) {
+        while (afterNode.leftNode) {
+            afterNode = afterNode.leftNode;
+        }
+        return afterNode;
+    }
+    while (node.parent && node == node.parent.rightNode) {
+        node = node.parent;
+    }
+    
+    return node.parent;
+}
+-(id<SCXBinaryTreeProtocol>)successorNode:(id<SCXBinaryTreeProtocol>)value{
+    if (!value) {
+        return nil;
+    }
+    SCXBinaryNode *node = [self node:value];
+    if (!node) {
+        return nil;
+    }
+    SCXBinaryNode *afterNode = node.rightNode;
+    if (afterNode) {
+        while (afterNode.leftNode) {
+            afterNode = afterNode.leftNode;
+        }
+        return afterNode.value;
+    }
+    while (node.parent && node == node.parent.rightNode) {
+        node = node.parent;
+    }
+    
+    return node.parent.value;
 }
 @end

@@ -82,7 +82,8 @@ typedef void (^Iterator)(id obj , BOOL *stop);
 - (id <SCXBinaryTreeProtocol>)preNode:(id <SCXBinaryTreeProtocol>)node;
 
 /// 后继节点
-- (id <SCXBinaryTreeProtocol>)succNode:(id <SCXBinaryTreeProtocol>)node;
+
+-(id <SCXBinaryTreeProtocol>)successorNode:(id<SCXBinaryTreeProtocol>)value;
 
 @end
 
