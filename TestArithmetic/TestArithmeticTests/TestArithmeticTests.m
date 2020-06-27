@@ -48,6 +48,25 @@
         NSLog(@"%@",obj);
     }];
 }
+- (void)testRBTreeRemove{
+    SCXRBTree *tree = [[SCXRBTree alloc] init];
+    NSArray *arr = @[@"55", @"87", @"56", @"74", @"96", @"22", @"62", @"20", @"70", @"68", @"90", @"50"];
+    for (NSString *value in arr) {
+        SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+        data.value = value;
+        [tree addObject:data];
+    }
+    
+    SCXBinaryNodeDate *data = [[SCXBinaryNodeDate alloc] init];
+    data.value = @"55";
+    [tree removeObject:data];
+    data.value = @"87";
+    [tree removeObject:data];
+
+    [tree levelorderTraversal:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+}
 - (void)testAVLTreeRemoveNode{
     SCXAVLTree *tree = [[SCXAVLTree alloc] init];
     NSArray *arr = @[@"8",@"7",@"9",@"3",@"2",@"6",@"10"];
@@ -67,6 +86,7 @@
         NSLog(@"%@",obj);
     }];
 }
+
 - (void)testAVLTree{
     SCXAVLTree *tree = [[SCXAVLTree alloc] init];
     NSArray *arr = @[@"8",@"7",@"9",@"3",@"2",@"6",@"10",@"11",@"100",@"150",@"99",@"200",@"300",@"140"];

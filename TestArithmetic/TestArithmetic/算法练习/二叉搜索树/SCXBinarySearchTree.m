@@ -129,7 +129,7 @@
                 node.parent.rightNode = child;
             }
             // AVL 树平衡
-            [self removeNodeAfter:node];
+            [self removeNodeAfter:child];
         } else if (node.parent == nil){
             // 根节点
             _rootNode = nil;
@@ -348,11 +348,11 @@
         if ([node isKindOfClass:[SCXRBNode class]]) {
             SCXRBNode *rb = (SCXRBNode *)node;
             // 红黑树颜色打印测试
-//            if (rb.color == SCXRBColorTypeRed) {
-//                NSLog(@"red_");
-//            } else {
-//                NSLog(@"black_");
-//            }
+            if (rb.color == SCXRBColorTypeRed) {
+                NSLog(@"red_");
+            } else {
+                NSLog(@"black_");
+            }
         }
         iterator(node.value,stop);
         if (*stop) {

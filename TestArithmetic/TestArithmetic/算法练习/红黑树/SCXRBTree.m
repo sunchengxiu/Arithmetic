@@ -166,8 +166,100 @@ _INLINE BOOL IsBlack(SCXBinaryNode *node){
 }
 
 -(void)removeNodeAfter:(SCXBinaryNode *)node{
+    /*
+     https://www.jianshu.com/p/b56f4115097c
+     node 传过来，可能是被删除的节点，也可能是替代的节点
+     1. 如果删除了一个红色的叶子节点，那么对整棵树没有影响，直接删除就可以了，对删除的这个节点是否染色都可以，因为他要被删除了
+     2. 如果替代的节点为红色，就需要将替代的节点染成黑色
+     */
+    SCXRBNode *rbnode = (SCXRBNode *)node;
+    if (IsRed(rbnode)) {
+        Black(rbnode);
+        return;
+    }
     
+    SCXRBNode *parent = (SCXRBNode *)rbnode.parent;
+    // 如果为根节点
+    if (parent == nil) {
+        return;
+    }
     
+    // 如果被删除的节点是黑色叶子节点，那么会导致下溢
+    // 判断被删除的节点是左还是右
+    BOOL isLeft = parent.leftNode == nil || [node isLeafNode];
+    // 找到兄弟节点
+    SCXRBNode *sibling = isLeft ? (SCXRBNode *)parent.rightNode : (SCXRBNode *)parent.leftNode;
+    if (isLeft) {
+        // 这里的情况和下面的刚好对称，左改为右，又改为左就可以.
+        if (IsRed(sibling)) {
+            Black(sibling);
+            Red(parent);
+            [self leftRote:parent];
+            sibling = (SCXRBNode *)parent.rightNode;
+        }
+
+        if (IsBlack(sibling.leftNode) && IsBlack(sibling.rightNode)) {
+            Black(parent);
+            Red(sibling);
+            BOOL isBlack = IsBlack(parent);
+            if (isBlack) {
+                [self removeNodeAfter:parent];
+            }
+        } else {
+            if (IsBlack(sibling.rightNode)) {
+                [self rightRote:sibling];
+                sibling = (SCXRBNode *)parent.rightNode;
+            }
+            Color(sibling, IsColor(parent));
+            Black(sibling.leftNode);
+            Black(parent);
+            [self leftRote:parent];
+        }
+    } else {
+        /*
+         如果被删除的节点的兄弟节点为红色
+         1. 需要将兄弟节点染成黑色，parent 染成红色
+         2. 然后进行右旋转，变成了兄弟节点为黑色的情况，可以统一处理，
+         */
+        if (IsRed(sibling)) {
+            Black(sibling);
+            Red(parent);
+            [self rightRote:parent];
+            // 更换兄弟节点，因为右旋了
+            sibling = (SCXRBNode *)parent.leftNode;
+        }
+        
+        // 统一处理兄弟节点为黑色的情况
+        // 判断兄弟节点是否有红色节点
+        if (IsBlack(sibling.leftNode) && IsBlack(sibling.rightNode)) {
+            // 到这里说明，兄弟节点没有一个是红色的。
+            // 父节点要向下和兄弟节点合并
+            // 父节点染黑
+            // 兄弟节点染红
+            // 如果父节点为黑色，向下合并的时候会出现下溢
+            Black(parent);
+            Red(sibling);
+            BOOL isBlack = IsBlack(parent);
+            if (isBlack) {
+                [self removeNodeAfter:parent];
+            }
+        } else {
+            // 来到这里，说明兄弟节点至少有一个是红色，可以借一个
+            // 兄弟节点至少有一个红色节点，那么分以下几种情况，有一个左红色节点，有一个右红色节点，有两个左右都是红色的节点，那么，有一个左红色节点和有两个红色节点，都需要进行右旋转，而有一个右红色节点，需要先进行左旋转，然后进行右旋转，所以，有一个有色红节点，可以转化为前面两种情况，所以判断条件可以为左边节点是否为黑色，因为空节点就是黑色
+            if (IsBlack(sibling.leftNode)) {
+                [self leftRote:sibling];
+                sibling = (SCXRBNode *)parent.leftNode;
+            }
+            
+            // 然后统一进行右旋转
+            // 兄弟节点需要继承父节点的颜色
+            // 然后将parent和兄弟节点的子节点都染成黑色
+            Color(sibling, IsColor(parent));
+            Black(sibling.leftNode);
+            Black(parent);
+            [self rightRote:parent];
+        }
+    }
 }
 // 左旋
 - (void)leftRote:(SCXRBNode *)node{
