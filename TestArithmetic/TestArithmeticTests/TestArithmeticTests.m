@@ -17,7 +17,9 @@
 #import "SCXCircleDeque.h"
 #import "SCXAVLTree.h"
 #import "SCXRBTree.h"
-@interface TestArithmeticTests : XCTestCase
+
+#import "SCXBinaryHeap.h"
+@interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate>
 
 @end
 
@@ -34,6 +36,23 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+// 二叉堆测试
+- (void)testBinaryHeapAdd{
+    SCXBinaryHeap *heap = [[SCXBinaryHeap alloc] initWithDelegate:self];
+    [heap add:@68];
+    [heap add:@72];
+    [heap add:@43];
+    [heap add:@50];
+    [heap add:@38];
+    NSInteger size = [heap size];
+    NSLog(@"%@",heap);
+}
+-(BOOL)compareA:(id)valueA valueB:(id)valueB{
+    if ([valueA intValue] < [valueB intValue]) {
+        return NO;
+    }
+    return YES;
 }
 // 红黑树测试
 - (void)testRBTreeAdd{

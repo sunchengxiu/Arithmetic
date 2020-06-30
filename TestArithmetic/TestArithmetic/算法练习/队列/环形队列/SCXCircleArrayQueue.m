@@ -113,4 +113,5 @@ static NSInteger const defaultCapacity = 10;
     }
     return str;
 }
+
 @end
