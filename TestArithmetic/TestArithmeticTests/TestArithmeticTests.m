@@ -45,7 +45,12 @@
     [heap add:@43];
     [heap add:@50];
     [heap add:@38];
+    [heap add:@10];
+    [heap add:@90];
+    [heap add:@65];
+    NSNumber *obj = [heap removeTopObject];
     NSInteger size = [heap size];
+    XCTAssertEqual(obj, @90);
     NSLog(@"%@",heap);
 }
 -(BOOL)compareA:(id)valueA valueB:(id)valueB{
