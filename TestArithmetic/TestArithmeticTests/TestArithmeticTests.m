@@ -53,6 +53,19 @@
     XCTAssertEqual(obj, @90);
     NSLog(@"%@",heap);
 }
+- (void)testBinaryHeapReplace{
+    SCXBinaryHeap *heap = [[SCXBinaryHeap alloc] initWithDelegate:self];
+    [heap add:@68];
+    [heap add:@72];
+    [heap add:@43];
+    [heap add:@50];
+    [heap add:@38];
+    [heap add:@10];
+    [heap add:@90];
+    [heap add:@65];
+    [heap replaceTopObject:@70];
+    NSLog(@"%@",heap);
+}
 -(BOOL)compareA:(id)valueA valueB:(id)valueB{
     if ([valueA intValue] < [valueB intValue]) {
         return NO;

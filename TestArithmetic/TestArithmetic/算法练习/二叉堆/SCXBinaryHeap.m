@@ -48,6 +48,21 @@
     [self siftDown:0];
     return obj;
 }
+- (id)replaceTopObject:(id)object{
+    if ([self isNULL:object]) {
+        return nil;
+    }
+    id obj = nil;
+    if (_size == 0) {
+        _size ++;
+        _array[0] = object;
+    } else {
+        obj = _array[0];
+        _array[0] = object;
+        [self siftDown:0];
+    }
+    return obj;
+}
 -(NSInteger)size{
     return _size;
 }
