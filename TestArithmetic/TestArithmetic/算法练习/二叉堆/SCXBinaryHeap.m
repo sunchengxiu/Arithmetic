@@ -25,7 +25,28 @@
     }
     return self;
 }
-
+- (instancetype)initWithArray:(NSArray *)arr delegate:(id<SCXBinaryHeapDelegate>)delegate{
+    if (self = [super init]) {
+        self.delegate = delegate;
+        if (!arr || arr.count == 0) {
+            _array = [NSMutableArray arrayWithCapacity:DefaultCapacity];
+            _size = 0;
+        } else {
+            NSInteger count = arr.count;
+            _capacity = count;
+            _size = count;
+            self.array = arr.mutableCopy;
+            [self heapify];
+        }
+    }
+    return self;
+}
+- (void)heapify{
+    // 自下而上下滤
+    for (NSInteger i = (_size >> 1) - 1; i >= 0; i --) {
+        [self siftDown:i];
+    }
+}
 - (void)add:(nonnull id)object {
     if ([self isNULL:object]) {
         return;
@@ -69,6 +90,16 @@
 -(BOOL)isEmpty{
     return _size == 0;
 }
+
+- (void)clear {
+    [_array removeAllObjects];
+    _size = 0;
+}
+
+- (nonnull id)getTopObject {
+    return _array.firstObject;
+}
+
 // 上滤
 - (void)siftDown:(NSInteger)index{
     //第一个叶子节点的所以就是非叶子节点的数量，因为为完全二叉树，所以，要么没有左右子节点，要么只有左节点，不可能出现只有右子节点的情况

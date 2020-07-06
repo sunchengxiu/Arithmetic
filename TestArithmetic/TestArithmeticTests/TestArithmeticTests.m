@@ -38,6 +38,12 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 // 二叉堆测试
+- (void)testBinaryHeapWithArray{
+    NSArray *arr = @[@88,@44,@53,@41,@16,@6,@70,@18,@85,@98,@81,@23,@36,@43,@37];
+    SCXBinaryHeap *heap = [[SCXBinaryHeap alloc] initWithArray:arr delegate:self];
+    NSLog(@"%@",heap);
+
+}
 - (void)testBinaryHeapAdd{
     SCXBinaryHeap *heap = [[SCXBinaryHeap alloc] initWithDelegate:self];
     [heap add:@68];
