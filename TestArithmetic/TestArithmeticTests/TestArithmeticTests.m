@@ -17,9 +17,9 @@
 #import "SCXCircleDeque.h"
 #import "SCXAVLTree.h"
 #import "SCXRBTree.h"
-
+#import "SCXPriorityQueue.h"
 #import "SCXBinaryHeap.h"
-@interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate>
+@interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
 
@@ -36,6 +36,21 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+// 优先级队列
+- (void)testPriorityQueue{
+    SCXPriorityQueue *queue = [[SCXPriorityQueue alloc] initWithDelegate:self];
+    [queue enQueue:@1];
+    [queue enQueue:@3];
+    [queue enQueue:@2];
+    [queue enQueue:@0];
+    [queue enQueue:@4];
+    NSLog(@"%@",[queue front]);
+    NSLog(@"%@",[queue deQueue]);
+    NSLog(@"%@",[queue deQueue]);
+    NSLog(@"%@",[queue deQueue]);
+    NSLog(@"%@",[queue deQueue]);
+    NSLog(@"%@",[queue deQueue]);
 }
 //top k 问题
 // 找到一组数中，最大的前几个

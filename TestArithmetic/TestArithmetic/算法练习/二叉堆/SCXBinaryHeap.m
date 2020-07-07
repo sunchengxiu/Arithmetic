@@ -106,7 +106,9 @@
     // index < 第一个叶子节点的索引，这样就能保证他能和有子节点的进行交换
     // 必须保证index 位置为非叶子节点，因为这样可以找到左节点，或者左右节点，进行交换
     // 非叶子节点的数量为 二叉树节点数量除以二
-    
+    if (index >= _array.count) {
+        return;
+    }
     id obj = _array[index];
     // 第一个非叶子节点的索引
     NSInteger half = _size >> 1;
@@ -117,16 +119,18 @@
         NSInteger leftIndex = (index << 1) + 1;
         id leftObjf = _array[leftIndex];
         NSInteger rightIndex = leftIndex +1;
-        id rightObj = _array[rightIndex];
+        
         
         // 选出最大值
         id maxObj = leftObjf;
         NSInteger maxIndex = leftIndex;
-        
-        if (rightIndex < _size && [self.delegate compareA:rightObj valueB:leftObjf]) {
-            // 右节点比左节点大
-            maxObj = rightObj;
-            maxIndex = rightIndex;
+        if (rightIndex < _size ) {
+            id rightObj = _array[rightIndex];
+            if ([self.delegate compareA:rightObj valueB:leftObjf]) {
+                // 右节点比左节点大
+                maxObj = rightObj;
+                maxIndex = rightIndex;
+            }
         }
         
         // 选出左右最大的节点和index之后，和当前节点进行比较
