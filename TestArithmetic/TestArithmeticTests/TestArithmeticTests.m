@@ -37,6 +37,24 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+//top k 问题
+// 找到一组数中，最大的前几个
+- (void)testFindMax{
+    NSArray *arr = @[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10];
+    int k =5;
+    SCXBinaryHeap *heap = [[SCXBinaryHeap alloc] initWithDelegate:self];;
+
+    // 找到最大的前五个，现将前五个额元素，放入小顶堆中，然后之后的每一个元素，如果比堆顶大，那么就执行replace，这样做的目的其实就是，默认先将前五个作为最大，然后如果发现有大的，就一次替换，因为堆顶是最小的，所以到最后，小顶堆的元素一定是最后要找的,时间复杂度为nlogk，k为要寻找的个数
+    // 这里是找到最小的前五个数
+    for (int i = 0; i < arr.count; i ++) {
+        if (heap.size < k) {
+            [heap add:arr[i]];
+        } else if ([self compareA:heap.getTopObject valueB:arr[i]]){
+            [heap replaceTopObject:arr[i]];
+        }
+    }
+    NSLog(@"%@",heap);
+}
 // 二叉堆测试
 - (void)testBinaryHeapWithArray{
     NSArray *arr = @[@88,@44,@53,@41,@16,@6,@70,@18,@85,@98,@81,@23,@36,@43,@37];
