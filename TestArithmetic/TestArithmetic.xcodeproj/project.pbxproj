@@ -13,6 +13,9 @@
 		E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E4392460582200D81AC1 /* SCXAVLTree.m */; };
 		E8F0689424AB6CE80090829C /* SCXBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689324AB6CE80090829C /* SCXBinaryHeap.m */; };
 		E8F0689924B4AA800090829C /* SCXPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689824B4AA800090829C /* SCXPriorityQueue.m */; };
+		E8F0689D24B97D220090829C /* SCXBubbleSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689C24B97D220090829C /* SCXBubbleSoft.m */; };
+		E8F068A224B9815C0090829C /* TestSoftTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068A124B9815C0090829C /* TestSoftTests.m */; };
+		E8F068A624B9DD8A0090829C /* SCXSelectionSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068A524B9DD8A0090829C /* SCXSelectionSoft.m */; };
 		E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750A242F32A600F4F8F9 /* AppDelegate.m */; };
 		E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750D242F32A600F4F8F9 /* SceneDelegate.m */; };
 		E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67510242F32A600F4F8F9 /* ViewController.m */; };
@@ -66,6 +69,12 @@
 		E8F0689524AB6FEB0090829C /* SCXBinaryHeapInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBinaryHeapInterface.h; sourceTree = "<group>"; };
 		E8F0689724B4AA800090829C /* SCXPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXPriorityQueue.h; sourceTree = "<group>"; };
 		E8F0689824B4AA800090829C /* SCXPriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXPriorityQueue.m; sourceTree = "<group>"; };
+		E8F0689B24B97D220090829C /* SCXBubbleSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXBubbleSoft.h; sourceTree = "<group>"; };
+		E8F0689C24B97D220090829C /* SCXBubbleSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXBubbleSoft.m; sourceTree = "<group>"; };
+		E8F068A024B97E4A0090829C /* SCXSoftProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXSoftProtocol.h; sourceTree = "<group>"; };
+		E8F068A124B9815C0090829C /* TestSoftTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSoftTests.m; sourceTree = "<group>"; };
+		E8F068A424B9DD8A0090829C /* SCXSelectionSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXSelectionSoft.h; sourceTree = "<group>"; };
+		E8F068A524B9DD8A0090829C /* SCXSelectionSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXSelectionSoft.m; sourceTree = "<group>"; };
 		E8F67506242F32A600F4F8F9 /* TestArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F67509242F32A600F4F8F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8F6750A242F32A600F4F8F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -205,6 +214,34 @@
 			path = "优先级队列";
 			sourceTree = "<group>";
 		};
+		E8F0689A24B977B30090829C /* 算法 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F068A324B9DD720090829C /* 选择排序 */,
+				E8F0689E24B97D280090829C /* 冒泡排序 */,
+				E8F068A024B97E4A0090829C /* SCXSoftProtocol.h */,
+			);
+			path = "算法";
+			sourceTree = "<group>";
+		};
+		E8F0689E24B97D280090829C /* 冒泡排序 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F0689B24B97D220090829C /* SCXBubbleSoft.h */,
+				E8F0689C24B97D220090829C /* SCXBubbleSoft.m */,
+			);
+			path = "冒泡排序";
+			sourceTree = "<group>";
+		};
+		E8F068A324B9DD720090829C /* 选择排序 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F068A424B9DD8A0090829C /* SCXSelectionSoft.h */,
+				E8F068A524B9DD8A0090829C /* SCXSelectionSoft.m */,
+			);
+			path = "选择排序";
+			sourceTree = "<group>";
+		};
 		E8F674FD242F32A600F4F8F9 = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F67553242F32F200F4F8F9 /* LeetCode */,
+				E8F0689A24B977B30090829C /* 算法 */,
 				E8F67540242F32E000F4F8F9 /* 数据结构 */,
 				E8F67509242F32A600F4F8F9 /* AppDelegate.h */,
 				E8F6750A242F32A600F4F8F9 /* AppDelegate.m */,
@@ -250,6 +288,7 @@
 			children = (
 				E8F67525242F32A800F4F8F9 /* TestArithmeticTests.m */,
 				E8F67527242F32A800F4F8F9 /* Info.plist */,
+				E8F068A124B9815C0090829C /* TestSoftTests.m */,
 			);
 			path = TestArithmeticTests;
 			sourceTree = "<group>";
@@ -499,6 +538,7 @@
 			files = (
 				E8F67551242F32E000F4F8F9 /* SCXSingalCircleList.m in Sources */,
 				E8F675B6242F392500F4F8F9 /* SCXBinaryNodeDate.m in Sources */,
+				E8F0689D24B97D220090829C /* SCXBubbleSoft.m in Sources */,
 				E8F0689924B4AA800090829C /* SCXPriorityQueue.m in Sources */,
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
@@ -517,6 +557,7 @@
 				E8F67550242F32E000F4F8F9 /* SCXLinkList.m in Sources */,
 				E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */,
 				E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */,
+				E8F068A624B9DD8A0090829C /* SCXSelectionSoft.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8F67526242F32A800F4F8F9 /* TestArithmeticTests.m in Sources */,
+				E8F068A224B9815C0090829C /* TestSoftTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
