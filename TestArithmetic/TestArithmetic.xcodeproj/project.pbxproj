@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F67553242F32F200F4F8F9 /* LeetCode */,
-				E8F67540242F32E000F4F8F9 /* 算法练习 */,
+				E8F67540242F32E000F4F8F9 /* 数据结构 */,
 				E8F67509242F32A600F4F8F9 /* AppDelegate.h */,
 				E8F6750A242F32A600F4F8F9 /* AppDelegate.m */,
 				E8F6750C242F32A600F4F8F9 /* SceneDelegate.h */,
@@ -263,7 +263,7 @@
 			path = TestArithmeticUITests;
 			sourceTree = "<group>";
 		};
-		E8F67540242F32E000F4F8F9 /* 算法练习 */ = {
+		E8F67540242F32E000F4F8F9 /* 数据结构 */ = {
 			isa = PBXGroup;
 			children = (
 				E8F0689624B4AA200090829C /* 优先级队列 */,
@@ -277,7 +277,7 @@
 				E8F6754C242F32E000F4F8F9 /* 二叉搜索树 */,
 				E8D9E4372460571100D81AC1 /* AVL二叉平衡搜索树 */,
 			);
-			path = "算法练习";
+			path = "数据结构";
 			sourceTree = "<group>";
 		};
 		E8F67541242F32E000F4F8F9 /* 双向链表 */ = {
