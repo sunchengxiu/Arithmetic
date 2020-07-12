@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "SCXBubbleSoft.h"
 #import "SCXSelectionSoft.h"
+#import "SCXHeapSoft.h"
+#import "SCXInsertionSoft.h"
 @interface TestSoftTests : XCTestCase
 
 @end
@@ -22,6 +24,35 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
+// 基于二分查找的插入排序
+- (void)testBinarySearchInsertionSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXInsertionSoft *soft = [[SCXInsertionSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+    NSLog(@"%@",res);
+}
+// 优化后的插入排序测试
+- (void)testGoodInsertionSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXInsertionSoft *soft = [[SCXInsertionSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+    NSLog(@"%@",res);
+}
+// 插入排序测试
+- (void)testInsertionSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXInsertionSoft *soft = [[SCXInsertionSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+    NSLog(@"%@",res);
+}
+// 堆排序测试
+-(void)testHeapSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXHeapSoft *soft = [[SCXHeapSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+    NSLog(@"%@",res);
+}
+// 选择排序测试
 - (void)testSelectionSoft{
     NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
     SCXSelectionSoft *soft = [[SCXSelectionSoft alloc] init];

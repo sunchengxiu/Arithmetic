@@ -43,6 +43,7 @@
 }
 - (void)heapify{
     // 自下而上下滤
+    // 
     for (NSInteger i = (_size >> 1) - 1; i >= 0; i --) {
         [self siftDown:i];
     }
@@ -100,9 +101,9 @@
     return _array.firstObject;
 }
 
-// 上滤
+// 下滤
 - (void)siftDown:(NSInteger)index{
-    //第一个叶子节点的所以就是非叶子节点的数量，因为为完全二叉树，所以，要么没有左右子节点，要么只有左节点，不可能出现只有右子节点的情况
+    //第一个叶子节点的索引就是非叶子节点的数量，因为为完全二叉树，所以，要么没有左右子节点，要么只有左节点，不可能出现只有右子节点的情况
     // index < 第一个叶子节点的索引，这样就能保证他能和有子节点的进行交换
     // 必须保证index 位置为非叶子节点，因为这样可以找到左节点，或者左右节点，进行交换
     // 非叶子节点的数量为 二叉树节点数量除以二
@@ -144,6 +145,7 @@
     }
     _array[index] = obj;
 }
+// 上滤
 - (void)siftUp:(NSInteger)index{
     // 取出当前 index 的元素
     id currentValue = _array[index];
