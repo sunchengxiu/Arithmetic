@@ -11,6 +11,7 @@
 #import "SCXSelectionSoft.h"
 #import "SCXHeapSoft.h"
 #import "SCXInsertionSoft.h"
+#import "SCXMergeSoft.h"
 @interface TestSoftTests : XCTestCase
 
 @end
@@ -23,6 +24,14 @@
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+}
+// 归并排序测试
+- (void)testMergeSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXMergeSoft *soft = [[SCXMergeSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+//    NSLog(@"%@",res);
+
 }
 // 基于二分查找的插入排序
 - (void)testBinarySearchInsertionSoft{
