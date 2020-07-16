@@ -13,6 +13,7 @@
 #import "SCXInsertionSoft.h"
 #import "SCXMergeSoft.h"
 #import "SCXQuickSoft.h"
+#import "SCXShellSoft.h"
 
 @interface TestSoftTests : XCTestCase
 
@@ -26,6 +27,13 @@
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+}
+// 希尔排序
+- (void)testShellSoft{
+    NSArray *arr = @[@5,@4,@7,@7,@1,@9,@8,@10];
+    SCXShellSoft *soft = [[SCXShellSoft alloc] init];
+    NSArray *res = [soft soft:arr];
+    NSLog(@"%@",res);
 }
 // 快排测试
 - (void)testQuickSoft{

@@ -20,6 +20,7 @@
 		E8F068B124BAF6790090829C /* SCXInsertionSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068B024BAF6790090829C /* SCXInsertionSoft.m */; };
 		E8F068B524BC8F6E0090829C /* SCXMergeSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068B424BC8F6E0090829C /* SCXMergeSoft.m */; };
 		E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068B824BDE27F0090829C /* SCXQuickSoft.m */; };
+		E8F068BD24C0849C0090829C /* SCXShellSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F068BC24C0849C0090829C /* SCXShellSoft.m */; };
 		E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750A242F32A600F4F8F9 /* AppDelegate.m */; };
 		E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F6750D242F32A600F4F8F9 /* SceneDelegate.m */; };
 		E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F67510242F32A600F4F8F9 /* ViewController.m */; };
@@ -87,6 +88,8 @@
 		E8F068B424BC8F6E0090829C /* SCXMergeSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXMergeSoft.m; sourceTree = "<group>"; };
 		E8F068B724BDE27F0090829C /* SCXQuickSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickSoft.h; sourceTree = "<group>"; };
 		E8F068B824BDE27F0090829C /* SCXQuickSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickSoft.m; sourceTree = "<group>"; };
+		E8F068BB24C0849C0090829C /* SCXShellSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXShellSoft.h; sourceTree = "<group>"; };
+		E8F068BC24C0849C0090829C /* SCXShellSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXShellSoft.m; sourceTree = "<group>"; };
 		E8F67506242F32A600F4F8F9 /* TestArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F67509242F32A600F4F8F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8F6750A242F32A600F4F8F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 		E8F0689A24B977B30090829C /* 算法 */ = {
 			isa = PBXGroup;
 			children = (
+				E8F068BA24BDEC830090829C /* 希尔排序 */,
 				E8F068B624BDE25B0090829C /* 快排 */,
 				E8F068B224BC8F560090829C /* 归并排序 */,
 				E8F068AB24BAF27B0090829C /* 插入排序 */,
@@ -292,6 +296,15 @@
 				E8F068B824BDE27F0090829C /* SCXQuickSoft.m */,
 			);
 			path = "快排";
+			sourceTree = "<group>";
+		};
+		E8F068BA24BDEC830090829C /* 希尔排序 */ = {
+			isa = PBXGroup;
+			children = (
+				E8F068BB24C0849C0090829C /* SCXShellSoft.h */,
+				E8F068BC24C0849C0090829C /* SCXShellSoft.m */,
+			);
+			path = "希尔排序";
 			sourceTree = "<group>";
 		};
 		E8F674FD242F32A600F4F8F9 = {
@@ -600,6 +613,7 @@
 				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
+				E8F068BD24C0849C0090829C /* SCXShellSoft.m in Sources */,
 				E8F6755C242F32F300F4F8F9 /* SCXDeleNode.m in Sources */,
 				E8F675BD24306EE300F4F8F9 /* SCXCircleArrayQueue.m in Sources */,
 				E8F068AA24B9EE020090829C /* SCXHeapSoft.m in Sources */,
