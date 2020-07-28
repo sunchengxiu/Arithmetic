@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23B24CF0D740007D76E /* SCXUnionFind.m */; };
+		E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23E24D0579A0007D76E /* SCXQuickUnion.m */; };
 		E8656CB824A492040017C501 /* SCXRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8656CB724A492040017C501 /* SCXRBTree.m */; };
 		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E896259E2435BB0100811EA1 /* SCXStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E896259D2435BB0100811EA1 /* SCXStack.m */; };
@@ -63,6 +64,8 @@
 /* Begin PBXFileReference section */
 		E825B23A24CF0D740007D76E /* SCXUnionFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXUnionFind.h; sourceTree = "<group>"; };
 		E825B23B24CF0D740007D76E /* SCXUnionFind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXUnionFind.m; sourceTree = "<group>"; };
+		E825B23D24D0579A0007D76E /* SCXQuickUnion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickUnion.h; sourceTree = "<group>"; };
+		E825B23E24D0579A0007D76E /* SCXQuickUnion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickUnion.m; sourceTree = "<group>"; };
 		E8656CB624A492040017C501 /* SCXRBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXRBTree.h; sourceTree = "<group>"; };
 		E8656CB724A492040017C501 /* SCXRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXRBTree.m; sourceTree = "<group>"; };
 		E88033A32430CF29002783A2 /* SCXCircleDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleDeque.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 			children = (
 				E825B23A24CF0D740007D76E /* SCXUnionFind.h */,
 				E825B23B24CF0D740007D76E /* SCXUnionFind.m */,
+				E825B23D24D0579A0007D76E /* SCXQuickUnion.h */,
+				E825B23E24D0579A0007D76E /* SCXQuickUnion.m */,
 			);
 			path = "并查集";
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,
 				E8F6755B242F32F300F4F8F9 /* SCXReverseList.m in Sources */,
 				E8F67550242F32E000F4F8F9 /* SCXLinkList.m in Sources */,
+				E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */,
 				E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */,
 				E8F6750E242F32A600F4F8F9 /* SceneDelegate.m in Sources */,
 				E8F068A624B9DD8A0090829C /* SCXSelectionSoft.m in Sources */,

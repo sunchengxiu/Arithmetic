@@ -7,6 +7,7 @@
 //
 
 #import "SCXUnionFind.h"
+// quick find 时间复杂度在union，O(n),find 复杂度为O(1)
 @interface SCXUnionFind()
 @property (nonatomic , strong) NSMutableArray *parents;
 @end

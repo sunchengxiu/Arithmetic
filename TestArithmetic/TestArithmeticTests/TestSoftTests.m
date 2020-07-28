@@ -15,6 +15,7 @@
 #import "SCXQuickSoft.h"
 #import "SCXShellSoft.h"
 #import "SCXUnionFind.h"
+#import "SCXQuickUnion.h"
 @interface TestSoftTests : XCTestCase
 
 @end
@@ -29,7 +30,36 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 // 并查集
-- (void)testUnioFind{
+- (void)testQuickUnion{
+    SCXQuickUnion *UF = [[SCXQuickUnion alloc] initWithCapicity:12];
+    [UF unionValue:0 value2:1];
+    [UF unionValue:0 value2:3];
+    [UF unionValue:0 value2:4];
+    [UF unionValue:2 value2:3];
+    [UF unionValue:2 value2:5];
+    
+    [UF unionValue:6 value2:7];
+    
+    [UF unionValue:8 value2:10];
+    [UF unionValue:9 value2:10];
+    [UF unionValue:9 value2:11];
+    
+    XCTAssertEqual([UF isSame:0 value2:3], YES);
+    
+    XCTAssertEqual([UF isSame:0 value2:5], YES);
+    
+    XCTAssertEqual([UF isSame:2 value2:4], YES);
+    
+    XCTAssertEqual([UF isSame:6 value2:7], YES);
+    
+    XCTAssertEqual([UF isSame:8 value2:10], YES);
+    
+    XCTAssertEqual([UF isSame:9 value2:10], YES);
+    
+    [UF unionValue:6 value2:8];
+    XCTAssertEqual([UF isSame:6 value2:10], YES);
+}
+- (void)testQuickFind{
     SCXUnionFind *UF = [[SCXUnionFind alloc] initWithCapicity:12];
     [UF unionValue:0 value2:1];
     [UF unionValue:0 value2:3];
