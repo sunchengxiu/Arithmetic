@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23B24CF0D740007D76E /* SCXUnionFind.m */; };
 		E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23E24D0579A0007D76E /* SCXQuickUnion.m */; };
+		E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */; };
 		E8656CB824A492040017C501 /* SCXRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8656CB724A492040017C501 /* SCXRBTree.m */; };
 		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E896259E2435BB0100811EA1 /* SCXStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E896259D2435BB0100811EA1 /* SCXStack.m */; };
@@ -66,6 +67,8 @@
 		E825B23B24CF0D740007D76E /* SCXUnionFind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXUnionFind.m; sourceTree = "<group>"; };
 		E825B23D24D0579A0007D76E /* SCXQuickUnion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickUnion.h; sourceTree = "<group>"; };
 		E825B23E24D0579A0007D76E /* SCXQuickUnion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickUnion.m; sourceTree = "<group>"; };
+		E825B24024D0669F0007D76E /* SCXQuickUnion_Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickUnion_Size.h; sourceTree = "<group>"; };
+		E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickUnion_Size.m; sourceTree = "<group>"; };
 		E8656CB624A492040017C501 /* SCXRBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXRBTree.h; sourceTree = "<group>"; };
 		E8656CB724A492040017C501 /* SCXRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXRBTree.m; sourceTree = "<group>"; };
 		E88033A32430CF29002783A2 /* SCXCircleDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleDeque.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				E825B23B24CF0D740007D76E /* SCXUnionFind.m */,
 				E825B23D24D0579A0007D76E /* SCXQuickUnion.h */,
 				E825B23E24D0579A0007D76E /* SCXQuickUnion.m */,
+				E825B24024D0669F0007D76E /* SCXQuickUnion_Size.h */,
+				E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */,
 			);
 			path = "并查集";
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */,
 				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */,
+				E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F068BD24C0849C0090829C /* SCXShellSoft.m in Sources */,
 				E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */,
