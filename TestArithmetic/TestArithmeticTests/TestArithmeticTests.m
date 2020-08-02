@@ -49,7 +49,11 @@
     [graph addEdge:@"v2" to:@"v3" weigth:[NSNumber numberWithInteger:5]];
     [graph addEdge:@"v3" to:@"v4" weigth:[NSNumber numberWithInteger:1]];
     [graph addEdge:@"v0" to:@"v4" weigth:[NSNumber numberWithInteger:6]];
+    
+    [graph removeVertex:@"v0"];
     [graph printGraph];
+    NSLog(@"顶点个数：%@",@([graph verticesSize]));
+    NSLog(@"边个数：%@",@([graph edgesSize]));
 
 }
 // 优先级队列

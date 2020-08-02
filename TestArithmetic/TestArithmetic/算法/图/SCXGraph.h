@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param from 边的起点
 /// @param to 边的终点
 - (void)removeEdge:(V)from to:(V)to;
+
+/// 打印图
+- (void)printGraph;
 @end
 
 NS_ASSUME_NONNULL_END

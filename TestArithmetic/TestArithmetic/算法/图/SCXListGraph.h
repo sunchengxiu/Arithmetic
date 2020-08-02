@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 有向图
+// 也可以表示无向图，v0->v1,v1->v0,表示一条边就可以。
 @interface SCXListGraph : SCXGraph
-- (void)printGraph;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,10 +16,10 @@
 /// 顶点的值
 @property (nonatomic,strong) V vertex;
 
-/// 所有以该顶点为终点的边
+/// 所有以该顶点为终点的边,入度的边
 @property (nonatomic , strong)NSHashTable<SCXGraphEdge *> *inEdges;
 
-/// 所有以该顶点为起点的边
+/// 所有以该顶点为起点的边，出度的边
 @property (nonatomic , strong)NSHashTable<SCXGraphEdge *> *outEdges;
 
 - (instancetype)initWithVertex:(V)vertex;
@@ -42,7 +42,7 @@
     return [vertex.vertex isEqual:self.vertex];
 }
 - (NSUInteger)hash{
-    return ((NSString *)self.vertex).hash;
+    return [super hash];
 }
 - (NSString *)description{
     return self.vertex;
@@ -111,6 +111,9 @@
 - (NSUInteger)edgesSize{
     return self.edges.count;
 }
+
+/// 添加顶点，将顶点全局保存一份，顶点的值为key，value为SCXGraphVertex对象
+/// @param v 顶点的值
 - (void)addVertex:(id)v{
     if (!v) {
         return;
@@ -120,6 +123,10 @@
     }
     [self.vertices setObject:[[SCXGraphVertex alloc] initWithVertex:v] forKey:v];
 }
+
+/// 添加边
+/// @param from 边的起点
+/// @param to 边的终点
 - (void)addEdge:(id)from to:(id)to{
     [self addEdge:from to:to weigth:[NSNumber numberWithInteger:NSIntegerMax]];
 }
@@ -162,14 +169,76 @@
     }
     [self.edges addObject:edge];
 }
+- (void)removeVertex:(id)v{
+    // 先从所有顶点缓存中删除这个顶点
+    SCXGraphVertex *vertex = [self.vertices objectForKey:v];
+    if (!vertex) {
+        return;
+    }
+    
+    // 删除和这个顶点有关的边
+    // 先删除以这个顶点为起点的边
+    NSEnumerator *outObjEnumerator = vertex.outEdges.objectEnumerator;
+    SCXGraphEdge *outEdge;
+    while ((outEdge = outObjEnumerator.nextObject) != nil) {
+        // 取出每一条边
+        // 取出这条边之后，将这条边的终点的顶点，到这个终点的顶点的边删除
+        [outEdge.to.inEdges removeObject:outEdge];
+        [self.edges removeObject:outEdge];
+    }
+    [vertex.outEdges removeAllObjects];
+    // 先删除以这个顶点为终点的边
+    NSEnumerator *inObjEnumerator = vertex.inEdges.objectEnumerator;
+    SCXGraphEdge *inEdge;
+    while ((inEdge = inObjEnumerator.nextObject) != nil) {
+        // 取出每一条边
+        // 取出这条边之后，将这条边的终点的顶点，到这个终点的顶点的边删除
+        [inEdge.from.outEdges removeObject:inEdge];
+        [self.edges removeObject:inEdge];
+    }
+    [vertex.inEdges removeAllObjects];
+    [self.vertices removeObjectForKey:v];
+}
+
+/// 移除一条边
+/// @param from 边的起点
+/// @param to 边的终点
+- (void)removeEdge:(id)from to:(id)to{
+    // 找到起点和终点对应的顶点值
+    SCXGraphVertex *fromVertex = [self.vertices objectForKey:from];
+    SCXGraphVertex *toVertex = [self.vertices objectForKey:to];
+    if (!fromVertex || !toVertex) {
+        return;
+    }
+    
+    // 根据这两个顶点构建一条边
+    // 边的起点和终点相等，就认为是同一条边
+    SCXGraphEdge *edge = [[SCXGraphEdge alloc] initWithFrom:from to:to];
+    if ([fromVertex.outEdges containsObject:edge]) {
+        [fromVertex.outEdges removeObject:edge];
+    }
+    if ([toVertex.inEdges containsObject:edge]) {
+        [toVertex.inEdges removeObject:edge];
+    }
+    if ([self.edges containsObject:edge]) {
+        [self.edges removeObject:edge];
+    }
+}
 - (void)printGraph{
     NSEnumerator *enumerator = self.vertices.keyEnumerator ;
     id obj;
+    NSLog(@"【顶点-------】");
     while ((obj = enumerator.nextObject) != nil) {
         SCXGraphVertex *v = [self.vertices objectForKey:obj];
         NSLog(@"key:%@",obj);
         NSLog(@"outEdges:%@",v.outEdges);
         NSLog(@"inEdgesL%@",v.inEdges);
+    }
+    NSLog(@"【边-------】");
+    NSEnumerator *edgeEnumerator = self.edges.objectEnumerator;
+    SCXGraphEdge *edge ;
+    while ((edge = edgeEnumerator.nextObject) != nil) {
+        NSLog(@"%@",edge);
     }
 }
 @end
