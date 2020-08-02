@@ -19,6 +19,8 @@
 #import "SCXRBTree.h"
 #import "SCXPriorityQueue.h"
 #import "SCXBinaryHeap.h"
+#import "SCXGraph.h"
+#import "SCXListGraph.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -36,6 +38,19 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testGraph{
+    SCXListGraph *graph = [[SCXListGraph alloc] init];
+    [graph addEdge:@"v1" to:@"v0" weigth:[NSNumber numberWithInteger:9]];
+    [graph addEdge:@"v1" to:@"v0" weigth:[NSNumber numberWithInteger:9]];
+
+    [graph addEdge:@"v1" to:@"v2" weigth:[NSNumber numberWithInteger:3]];
+    [graph addEdge:@"v2" to:@"v0" weigth:[NSNumber numberWithInteger:2]];
+    [graph addEdge:@"v2" to:@"v3" weigth:[NSNumber numberWithInteger:5]];
+    [graph addEdge:@"v3" to:@"v4" weigth:[NSNumber numberWithInteger:1]];
+    [graph addEdge:@"v0" to:@"v4" weigth:[NSNumber numberWithInteger:6]];
+    [graph printGraph];
+
 }
 // 优先级队列
 - (void)testPriorityQueue{

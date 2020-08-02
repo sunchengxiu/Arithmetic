@@ -10,6 +10,8 @@
 		E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23B24CF0D740007D76E /* SCXUnionFind.m */; };
 		E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23E24D0579A0007D76E /* SCXQuickUnion.m */; };
 		E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */; };
+		E825B24624D644660007D76E /* SCXGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B24524D644660007D76E /* SCXGraph.m */; };
+		E825B24A24D647CC0007D76E /* SCXListGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B24924D647CC0007D76E /* SCXListGraph.m */; };
 		E8656CB824A492040017C501 /* SCXRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8656CB724A492040017C501 /* SCXRBTree.m */; };
 		E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */ = {isa = PBXBuildFile; fileRef = E88033A42430CF29002783A2 /* SCXCircleDeque.m */; };
 		E896259E2435BB0100811EA1 /* SCXStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E896259D2435BB0100811EA1 /* SCXStack.m */; };
@@ -69,6 +71,10 @@
 		E825B23E24D0579A0007D76E /* SCXQuickUnion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickUnion.m; sourceTree = "<group>"; };
 		E825B24024D0669F0007D76E /* SCXQuickUnion_Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickUnion_Size.h; sourceTree = "<group>"; };
 		E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXQuickUnion_Size.m; sourceTree = "<group>"; };
+		E825B24424D644660007D76E /* SCXGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXGraph.h; sourceTree = "<group>"; };
+		E825B24524D644660007D76E /* SCXGraph.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXGraph.m; sourceTree = "<group>"; };
+		E825B24824D647CC0007D76E /* SCXListGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXListGraph.h; sourceTree = "<group>"; };
+		E825B24924D647CC0007D76E /* SCXListGraph.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXListGraph.m; sourceTree = "<group>"; };
 		E8656CB624A492040017C501 /* SCXRBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXRBTree.h; sourceTree = "<group>"; };
 		E8656CB724A492040017C501 /* SCXRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXRBTree.m; sourceTree = "<group>"; };
 		E88033A32430CF29002783A2 /* SCXCircleDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXCircleDeque.h; sourceTree = "<group>"; };
@@ -178,6 +184,17 @@
 			path = "并查集";
 			sourceTree = "<group>";
 		};
+		E825B24324D6442B0007D76E /* 图 */ = {
+			isa = PBXGroup;
+			children = (
+				E825B24424D644660007D76E /* SCXGraph.h */,
+				E825B24524D644660007D76E /* SCXGraph.m */,
+				E825B24824D647CC0007D76E /* SCXListGraph.h */,
+				E825B24924D647CC0007D76E /* SCXListGraph.m */,
+			);
+			path = "图";
+			sourceTree = "<group>";
+		};
 		E8656CB524A479910017C501 /* 红黑树 */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +271,7 @@
 		E8F0689A24B977B30090829C /* 算法 */ = {
 			isa = PBXGroup;
 			children = (
+				E825B24324D6442B0007D76E /* 图 */,
 				E825B23924CF0CC10007D76E /* 并查集 */,
 				E8F068BA24BDEC830090829C /* 希尔排序 */,
 				E8F068B624BDE25B0090829C /* 快排 */,
@@ -629,12 +647,14 @@
 				E8F675B6242F392500F4F8F9 /* SCXBinaryNodeDate.m in Sources */,
 				E8F0689D24B97D220090829C /* SCXBubbleSoft.m in Sources */,
 				E8F0689924B4AA800090829C /* SCXPriorityQueue.m in Sources */,
+				E825B24A24D647CC0007D76E /* SCXListGraph.m in Sources */,
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
 				E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */,
 				E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */,
 				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */,
+				E825B24624D644660007D76E /* SCXGraph.m in Sources */,
 				E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F068BD24C0849C0090829C /* SCXShellSoft.m in Sources */,
