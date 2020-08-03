@@ -39,6 +39,32 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
+- (void)testGraphDFS{
+    SCXListGraph *graph = [[SCXListGraph alloc] init];
+    [graph addEdge:@"0" to:@"1"];
+    [graph addEdge:@"1" to:@"0"];
+    
+    [graph addEdge:@"1" to:@"3"];
+    [graph addEdge:@"3" to:@"1"];
+    
+    [graph addEdge:@"1" to:@"5"];
+    [graph addEdge:@"5" to:@"1"];
+    
+    [graph addEdge:@"1" to:@"6"];
+    [graph addEdge:@"6" to:@"1"];
+    
+    [graph addEdge:@"1" to:@"2"];
+    [graph addEdge:@"2" to:@"1"];
+    
+    [graph addEdge:@"2" to:@"4"];
+    [graph addEdge:@"4" to:@"2"];
+    
+    [graph addEdge:@"3" to:@"7"];
+    [graph addEdge:@"7" to:@"3"];
+    
+    [graph DFS:@"1"];
+
+}
 - (void)testGraphBFS{
     SCXListGraph *graph = [[SCXListGraph alloc] init];
     [graph addEdge:@"v1" to:@"v0" weigth:[NSNumber numberWithInteger:9]];

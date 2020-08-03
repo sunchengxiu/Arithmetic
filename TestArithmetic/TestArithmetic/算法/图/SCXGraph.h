@@ -49,6 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广度优先搜索
 /// @param begin 遍历的起始节点
 - (void)BFS:(V)begin;
+
+/// 深度优先搜索
+/// @param begin 遍历的起始节点
+- (void)DFS:(V)begin;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -253,6 +253,27 @@
         }
     }
 }
+// 深度优先搜索，利用递归
+- (void)DFS:(id)begin{
+    SCXGraphVertex *beginVertex = [self.vertices objectForKey:begin];
+    // 防止重复访问
+    NSMutableArray *visitedVertices = [NSMutableArray array];
+    if (!beginVertex) {
+        return;
+    }
+    [self DFSrecursion:beginVertex visitedVertices:visitedVertices];
+}
+- (void)DFSrecursion:(SCXGraphVertex *)vertex visitedVertices:(NSMutableArray *)visited{
+    // 沿着根节点，一直向下找，直到，到底，到底了之后，一次向上回退，然后再找另一个条路径，也就相当于左右节点路径，这里是相当于每一条边,利用递归可以做到，一直向下找，然后回退
+    NSLog(@"%@",vertex.vertex);
+    [visited addObject:vertex];
+    for (SCXGraphEdge *edge in vertex.outEdges) {
+        if ([visited containsObject:edge.to]) {
+            continue;
+        }
+        [self DFSrecursion:edge.to visitedVertices:visited];
+    }
+}
 - (void)printGraph{
     NSEnumerator *enumerator = self.vertices.keyEnumerator ;
     id obj;
