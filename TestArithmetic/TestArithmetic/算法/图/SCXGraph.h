@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 打印图
 - (void)printGraph;
+
+/// 广度优先搜索
+/// @param begin 遍历的起始节点
+- (void)BFS:(V)begin;
 @end
 
 NS_ASSUME_NONNULL_END

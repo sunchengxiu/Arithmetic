@@ -7,7 +7,7 @@
 //
 
 #import "SCXListGraph.h"
-
+#import "SCXCircleArrayQueue.h"
 #pragma mark - vertex
 @class SCXGraphEdge;
 /// 图的顶点：V->SCXGraphVertex
@@ -222,6 +222,35 @@
     }
     if ([self.edges containsObject:edge]) {
         [self.edges removeObject:edge];
+    }
+}
+- (void)BFS:(id)begin{
+    // 广度优先搜索，就和之前的二叉树遍历一样，利用队列，先将一个顶点入队，然后将这个顶点出对，然后将这个顶点相关联的子节点，这里是以这个顶点为起点的边，也就是outEdges里面的边，依次再入队，然后这样循环下去
+    SCXGraphVertex *beginVertex = [self.vertices objectForKey:begin];
+    if (!beginVertex) {
+        return;
+    }
+    // 创建队列
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    // 入队
+    [queue enqueue:beginVertex];
+    // 保存已经访问过的顶点
+    NSMutableArray *visitedVertex = [NSMutableArray array];
+    [visitedVertex addObject:beginVertex];
+    
+    while (!queue.isEmpty) {
+        // 出对一个
+        SCXGraphVertex *v = queue.dequeue;
+        NSLog(@"%@",v.vertex);
+        
+        // 将跟这个顶点有关的边入队
+        for (SCXGraphEdge *edge in v.outEdges) {
+            if ([visitedVertex containsObject:edge.to]) {
+                continue;
+            }
+            [queue enqueue:edge.to];
+            [visitedVertex addObject:edge.to];
+        }
     }
 }
 - (void)printGraph{
