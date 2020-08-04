@@ -8,6 +8,7 @@
 
 #import "SCXListGraph.h"
 #import "SCXCircleArrayQueue.h"
+#import "SCXStack.h"
 #pragma mark - vertex
 @class SCXGraphEdge;
 /// 图的顶点：V->SCXGraphVertex
@@ -261,8 +262,10 @@
     if (!beginVertex) {
         return;
     }
-    [self DFSrecursion:beginVertex visitedVertices:visitedVertices];
+//    [self DFSrecursion:beginVertex visitedVertices:visitedVertices];
+    [self DFSStack:beginVertex visitedVertices:visitedVertices];
 }
+/// 利用递归来实现
 - (void)DFSrecursion:(SCXGraphVertex *)vertex visitedVertices:(NSMutableArray *)visited{
     // 沿着根节点，一直向下找，直到，到底，到底了之后，一次向上回退，然后再找另一个条路径，也就相当于左右节点路径，这里是相当于每一条边,利用递归可以做到，一直向下找，然后回退
     NSLog(@"%@",vertex.vertex);
@@ -272,6 +275,41 @@
             continue;
         }
         [self DFSrecursion:edge.to visitedVertices:visited];
+    }
+}
+/// 利用栈来实现
+- (void)DFSStack:(SCXGraphVertex *)veretex visitedVertices:(NSMutableArray *)visited{
+    // 然后将当前节点添加到已经访问的集合中去
+    [visited addObject:veretex];
+    // 创建栈
+    SCXStack *stack = [[SCXStack alloc] init];
+    // 入栈
+    [stack push:veretex];
+    // 将第一个节点打印
+    NSLog(@"%@",veretex.vertex);
+    
+    while (!stack.isEmpty) {
+        // 出栈
+        SCXGraphVertex *cur = [stack pop];
+        // 将出栈的这个顶点的from 和 to 入栈，from 入栈的原因是
+        // 访问到头了的时候，回退，当回退到这个顶点的时候，访问这个顶点的其余路径
+        // 判断是否访问过to，如果访问过，那么这条路径就访问过，如果没有访问过就访问to
+        // 从当前节点依次找每一条路径，找到一条路径就break，沿着to继续向下找
+        for (SCXGraphEdge *edge in cur.outEdges) {
+            if ([visited containsObject:edge.to]) {
+                continue;
+            }
+            // from 入栈
+            [stack push:edge.from];
+            // to 入栈
+            [stack push:edge.to];
+            // 将to添加到访问过得节点中
+            [visited addObject:edge.to];
+            // 打印to
+            NSLog(@"%@",edge.to.vertex);
+            // 退出这条路径，继续沿着to访问
+            break;
+        }
     }
 }
 - (void)printGraph{
