@@ -9,10 +9,11 @@
 #import "SCXListGraph.h"
 #import "SCXCircleArrayQueue.h"
 #import "SCXStack.h"
+#import "SCXCircleArrayQueue.h"
 #pragma mark - vertex
 @class SCXGraphEdge;
 /// 图的顶点：V->SCXGraphVertex
-@interface SCXGraphVertex<V,E> : NSObject
+@interface SCXGraphVertex<V,E> : NSObject<NSCopying>
 
 /// 顶点的值
 @property (nonatomic,strong) V vertex;
@@ -28,7 +29,14 @@
 @end
 
 @implementation SCXGraphVertex
-
+// 这样就可以这个对象当做key放到字典中了。
+- (id)copyWithZone:(NSZone *)zone {
+    SCXGraphVertex *ver = [[SCXGraphVertex alloc] init];
+//    ver.inEdges = self.inEdges;
+//    ver.outEdges = self.outEdges;
+    ver.vertex = self.vertex;
+    return ver;
+}
 - (instancetype)initWithVertex:(id)vertex{
     if (self = [super init]) {
         self.vertex = vertex;
@@ -262,7 +270,7 @@
     if (!beginVertex) {
         return;
     }
-//    [self DFSrecursion:beginVertex visitedVertices:visitedVertices];
+    //    [self DFSrecursion:beginVertex visitedVertices:visitedVertices];
     [self DFSStack:beginVertex visitedVertices:visitedVertices];
 }
 /// 利用递归来实现
@@ -328,5 +336,63 @@
     while ((edge = edgeEnumerator.nextObject) != nil) {
         NSLog(@"%@",edge);
     }
+}
+
+/// 拓扑排序
+/*
+ 1. 每个顶点只出现依次
+ 2. 没有一个节点指向他节点的前面
+ 
+ 
+ 1. 先遍历所有的节点，将入度为0的节点，放在q1队列里面，度不为0的节点，我们放到一个map里面，key为这个节点，value为这个节点的入度
+ 2. 从队列q1中取出一个节点，如果队列不为空，一直循环取
+ 3. 从上面队列中取出一个度为0的节点后，放到我们最终要的结果数组里面arr1
+ 4. 拿到所有跟这个顶点有关的边，将这些变得终点的入度，减去1，这些顶点其实是都放在上面的map中
+ 5. 重复2，3，4
+ */
+- (NSArray *)topologicalSort{
+    // 存放所有度为0的节点
+    SCXCircleArrayQueue *queue = [SCXCircleArrayQueue arrayQueue];
+    // 存放除了度为0的节点之外，其余的所有节点，key为这个节点，value为这个节点的入度
+    //    NSMapTable *map = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsStrongMemory) valueOptions:NSPointerFunctionsStrongMemory];
+    NSMutableDictionary *map = [NSMutableDictionary dictionary];
+    // 存放最终的结果
+    NSMutableArray *result = [NSMutableArray array];
+    
+    // 先找出所有的入度为0的节点
+    NSEnumerator *enumerator = self.vertices.keyEnumerator;
+    id key ;
+    while ((key = enumerator.nextObject) != nil) {
+        SCXGraphVertex *vertex = [self.vertices objectForKey:key];
+        NSInteger size = vertex.inEdges.count;
+        if (size == 0) {
+            [queue enqueue:vertex];
+        } else {
+            NSNumber *num = [NSNumber numberWithInteger:size];
+            [map setValue:num forKey:vertex.vertex];
+        }
+        
+    }
+    // 挨个从队列里面取出入度为0的节点，将它放到最终的结果数组里面去
+    while (!queue.isEmpty) {
+        SCXGraphVertex *zeroVertex = [queue dequeue];
+        // 放到结果数组中去
+        [result addObject:zeroVertex.vertex];
+        
+        // 将跟这个顶点有关的顶点的入度都减去1
+        for (SCXGraphEdge *outEdge in zeroVertex.outEdges) {
+            SCXGraphVertex *outVertext = outEdge.to;
+            NSNumber *priSizeNum = [map objectForKey:outVertext.vertex];
+            NSInteger outSize = priSizeNum.integerValue - 1;
+            if (outSize == 0) {
+                [queue enqueue:outVertext];
+            } else {
+                [map setValue:[NSNumber numberWithInteger:outSize] forKey:outVertext.vertex];
+            }
+        }
+    }
+    
+    
+    return result.copy;
 }
 @end

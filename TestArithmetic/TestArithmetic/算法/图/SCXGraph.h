@@ -53,6 +53,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 深度优先搜索
 /// @param begin 遍历的起始节点
 - (void)DFS:(V)begin;
+
+
+/// 拓扑排序
+- (NSArray *)topologicalSort;
 @end
 
 NS_ASSUME_NONNULL_END
