@@ -446,8 +446,8 @@
         node.leftNode = node.rightNode;
         node.rightNode = tmp;
     }
-    [self _invertTree:node.leftNode];
-    [self _invertTree:node.rightNode];
+    [self _invertTree1:node.leftNode];
+    [self _invertTree1:node.rightNode];
     return node.value;
 }
 /// 迭代实现反转二叉树
