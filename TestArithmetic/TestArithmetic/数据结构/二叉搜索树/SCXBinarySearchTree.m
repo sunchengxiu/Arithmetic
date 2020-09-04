@@ -107,7 +107,7 @@
         // 移除度为2的节点
         if ([node hasTwoChildren]) {
             // 找到前驱节点
-            SCXBinaryNode *preNode = [self _successorNode:obj];
+            SCXBinaryNode *preNode = [self _preNode:obj];
             // 用前驱节点的值，覆盖当前节点
             node.value = preNode.value;
             // 移除前驱结点,相当于移除度为1的节点
@@ -222,8 +222,8 @@
     if (![self isContinue:iterator rootNode:rootNode stop:stop]) return ;
     [self iterator:iterator rootNode:rootNode stop:stop];
     if (*stop) return;
-    [self _preorderTraversal:rootNode.leftNode iterator:iterator stop:stop];
-    [self _preorderTraversal:rootNode.rightNode iterator:iterator stop:stop];
+    [self _preorderTraversal1:rootNode.leftNode iterator:iterator stop:stop];
+    [self _preorderTraversal1:rootNode.rightNode iterator:iterator stop:stop];
 }
 // 迭代前序遍历
 -(void)_preorderTraversal:(SCXBinaryNode *)rootNode iterator:(Iterator)iterator stop:(BOOL *)stop{
