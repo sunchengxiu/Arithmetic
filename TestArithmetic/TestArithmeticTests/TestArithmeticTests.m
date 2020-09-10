@@ -21,6 +21,9 @@
 #import "SCXBinaryHeap.h"
 #import "SCXGraph.h"
 #import "SCXListGraph.h"
+#import "SCXMaxSubSum.h"
+
+#import "SCXLengthOfLIS.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -38,6 +41,18 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testLengthOfLIs {
+    NSArray *arr = @[@10,@2,@2,@5,@1,@7,@101,@18];
+    SCXLengthOfLIS *LIS = [[SCXLengthOfLIS alloc] init];
+    int count = [LIS lengthOfLIS:arr];;
+    NSLog(@"-----%d",count);
+}
+- (void)testMaxSub {
+    NSArray *arr = @[@-2,@1,@-3,@4,@-1,@2,@1,@-5,@4];
+    SCXMaxSubSum *maxSub = [[SCXMaxSubSum alloc] init];
+    int sum = [maxSub maxSubSum:arr];
+    NSLog(@"--------%d",sum);
 }
 - (void)testGraphTopolo1{
     SCXListGraph *graph = [[SCXListGraph alloc] init];
