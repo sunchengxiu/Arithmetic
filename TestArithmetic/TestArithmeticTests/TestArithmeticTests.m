@@ -24,6 +24,7 @@
 #import "SCXMaxSubSum.h"
 
 #import "SCXLengthOfLIS.h"
+#import "SCXPalindrome.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -41,6 +42,11 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testPalindsome {
+    SCXPalindrome *palindrome = [[SCXPalindrome alloc] init];
+    BOOL is = [palindrome palindrome:@"abcdcba"];
+    XCTAssertEqual(is, YES);
 }
 - (void)testLengthOfLIs {
     NSArray *arr = @[@10,@2,@2,@5,@1,@7,@101,@18];
