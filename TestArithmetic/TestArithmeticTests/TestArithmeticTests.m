@@ -27,6 +27,8 @@
 #import "SCXPalindrome.h"
 #import "SCXShortest.h"
 #import "SCXSteps.h"
+
+#import "SCXMinCoins.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -44,6 +46,12 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testMinCoins {
+    NSArray *arr = @[@1,@2,@5];
+    SCXMinCoins *minCoins = [[SCXMinCoins alloc] init];
+    int count = [minCoins coins:arr amount:11];
+    XCTAssertEqual(count, 3);
 }
 - (void)testSteps {
     SCXSteps *steps = [[SCXSteps alloc] init];
