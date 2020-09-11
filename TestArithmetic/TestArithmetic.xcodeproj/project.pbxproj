@@ -18,6 +18,7 @@
 		E8981D3A250A140700B4B4F7 /* SCXMaxSubSum.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D39250A140700B4B4F7 /* SCXMaxSubSum.m */; };
 		E8981D3D250A1F1F00B4B4F7 /* SCXLengthOfLIS.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D3C250A1F1F00B4B4F7 /* SCXLengthOfLIS.m */; };
 		E8981D40250A2B8A00B4B4F7 /* SCXPalindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D3F250A2B8A00B4B4F7 /* SCXPalindrome.m */; };
+		E8981D43250B4B6C00B4B4F7 /* SCXShortest.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D42250B4B6C00B4B4F7 /* SCXShortest.m */; };
 		E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E4392460582200D81AC1 /* SCXAVLTree.m */; };
 		E8F0689424AB6CE80090829C /* SCXBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689324AB6CE80090829C /* SCXBinaryHeap.m */; };
 		E8F0689924B4AA800090829C /* SCXPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689824B4AA800090829C /* SCXPriorityQueue.m */; };
@@ -90,6 +91,8 @@
 		E8981D3C250A1F1F00B4B4F7 /* SCXLengthOfLIS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLengthOfLIS.m; sourceTree = "<group>"; };
 		E8981D3E250A2B8A00B4B4F7 /* SCXPalindrome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXPalindrome.h; sourceTree = "<group>"; };
 		E8981D3F250A2B8A00B4B4F7 /* SCXPalindrome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXPalindrome.m; sourceTree = "<group>"; };
+		E8981D41250B4B6C00B4B4F7 /* SCXShortest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXShortest.h; sourceTree = "<group>"; };
+		E8981D42250B4B6C00B4B4F7 /* SCXShortest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXShortest.m; sourceTree = "<group>"; };
 		E8D9E4382460582200D81AC1 /* SCXAVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXAVLTree.h; sourceTree = "<group>"; };
 		E8D9E4392460582200D81AC1 /* SCXAVLTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXAVLTree.m; sourceTree = "<group>"; };
 		E8D9E43B2460584200D81AC1 /* SCXBinarySearchTree+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCXBinarySearchTree+Private.h"; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 		E8981D32250A0F4000B4B4F7 /* 最短路径 */ = {
 			isa = PBXGroup;
 			children = (
+				E8981D41250B4B6C00B4B4F7 /* SCXShortest.h */,
+				E8981D42250B4B6C00B4B4F7 /* SCXShortest.m */,
 			);
 			path = "最短路径";
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				E8F068B124BAF6790090829C /* SCXInsertionSoft.m in Sources */,
 				E8F6754F242F32E000F4F8F9 /* SCXCircleList.m in Sources */,
 				E8F6755B242F32F300F4F8F9 /* SCXReverseList.m in Sources */,
+				E8981D43250B4B6C00B4B4F7 /* SCXShortest.m in Sources */,
 				E8F67550242F32E000F4F8F9 /* SCXLinkList.m in Sources */,
 				E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */,
 				E88033A52430CF29002783A2 /* SCXCircleDeque.m in Sources */,
