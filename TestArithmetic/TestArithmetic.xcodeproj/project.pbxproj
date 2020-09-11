@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8005922250B663C00D2867E /* SCXSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = E8005921250B663C00D2867E /* SCXSteps.m */; };
 		E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23B24CF0D740007D76E /* SCXUnionFind.m */; };
 		E825B23F24D0579A0007D76E /* SCXQuickUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B23E24D0579A0007D76E /* SCXQuickUnion.m */; };
 		E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E825B24124D0669F0007D76E /* SCXQuickUnion_Size.m */; };
@@ -69,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8005920250B663C00D2867E /* SCXSteps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXSteps.h; sourceTree = "<group>"; };
+		E8005921250B663C00D2867E /* SCXSteps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXSteps.m; sourceTree = "<group>"; };
 		E825B23A24CF0D740007D76E /* SCXUnionFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXUnionFind.h; sourceTree = "<group>"; };
 		E825B23B24CF0D740007D76E /* SCXUnionFind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXUnionFind.m; sourceTree = "<group>"; };
 		E825B23D24D0579A0007D76E /* SCXQuickUnion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXQuickUnion.h; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 		E8981D33250A0F4B00B4B4F7 /* 上台阶 */ = {
 			isa = PBXGroup;
 			children = (
+				E8005920250B663C00D2867E /* SCXSteps.h */,
+				E8005921250B663C00D2867E /* SCXSteps.m */,
 			);
 			path = "上台阶";
 			sourceTree = "<group>";
@@ -741,6 +746,7 @@
 				E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */,
 				E825B24624D644660007D76E /* SCXGraph.m in Sources */,
 				E825B24224D0669F0007D76E /* SCXQuickUnion_Size.m in Sources */,
+				E8005922250B663C00D2867E /* SCXSteps.m in Sources */,
 				E8F675B3242F387400F4F8F9 /* SCXBinaryData.m in Sources */,
 				E8F068BD24C0849C0090829C /* SCXShellSoft.m in Sources */,
 				E825B23C24CF0D740007D76E /* SCXUnionFind.m in Sources */,

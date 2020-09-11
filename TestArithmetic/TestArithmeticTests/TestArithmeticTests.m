@@ -26,6 +26,7 @@
 #import "SCXLengthOfLIS.h"
 #import "SCXPalindrome.h"
 #import "SCXShortest.h"
+#import "SCXSteps.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -43,6 +44,11 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testSteps {
+    SCXSteps *steps = [[SCXSteps alloc] init];
+    int all = [steps steps:3];
+    XCTAssertEqual(all, 3);
 }
 - (void)testShortest {
     SCXShortest *shortest = [[SCXShortest alloc] init];
