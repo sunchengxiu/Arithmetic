@@ -264,6 +264,7 @@
 		E8981D30250A0ED800B4B4F7 /* 动态规划 */ = {
 			isa = PBXGroup;
 			children = (
+				E8B1C704250DDCC400458C9B /* 最长公共子串 */,
 				E8B1C700250DC68700458C9B /* 最长公共子序列 */,
 				E8981D36250A0F6800B4B4F7 /* 最长上升子序列 */,
 				E8981D35250A0F5800B4B4F7 /* 最大子序列的和 */,
@@ -336,6 +337,13 @@
 				E8B1C702250DC69C00458C9B /* SCXLCS.m */,
 			);
 			path = "最长公共子序列";
+			sourceTree = "<group>";
+		};
+		E8B1C704250DDCC400458C9B /* 最长公共子串 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "最长公共子串";
 			sourceTree = "<group>";
 		};
 		E8D9E4372460571100D81AC1 /* AVL二叉平衡搜索树 */ = {

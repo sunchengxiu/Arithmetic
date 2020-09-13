@@ -53,4 +53,34 @@
     }
     return ((NSNumber *)dp[m][n]).intValue;;
 }
+- (int)continuousLCS:(NSString *)str1 str2:(NSString *)str2 {
+    int m = str1.length;
+    int n = str2.length;
+    int max = 0;
+    // 构造 dp 二维矩阵
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0 ; i < n + 1 ; i ++) {
+        [arr addObject:@0];
+    }
+    NSMutableArray *dp =[NSMutableArray array];
+    for (int i = 0 ; i < m + 1; i ++) {
+        [dp addObject:arr.mutableCopy];
+    }
+    // 转移方程
+    for (int i = 0; i < m ; i ++) {
+        for (int j = 0; j < n ; j ++) {
+            // 判断是否相等
+            NSString *mstr = [str1 substringWithRange:NSMakeRange(i , 1)];
+            NSString *nstr = [str2 substringWithRange:NSMakeRange(j, 1)];
+            if ([mstr isEqualToString: nstr]) {
+                dp[i + 1][j + 1] = [NSNumber numberWithInt:((NSNumber *)dp[i ][j]).intValue + 1];
+                max = MAX(max, ((NSNumber *)dp[i + 1][j + 1]).intValue);
+            } else {
+                // 左边或者上边转移过来
+                dp[i + 1][j + 1] = [NSNumber numberWithInt:0];
+            }
+        }
+    }
+    return max;;
+}
 @end

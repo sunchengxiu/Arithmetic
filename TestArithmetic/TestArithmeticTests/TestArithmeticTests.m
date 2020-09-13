@@ -52,7 +52,8 @@
     SCXLCS *lcs = [[SCXLCS alloc] init];
     int cout = [lcs LCS:@"abcde" str2:@"ace"];
     XCTAssertEqual(cout, 3);
-    
+    cout = [lcs continuousLCS:@"abcdefg" str2:@"bacdefj"];
+    XCTAssertEqual(cout, 4);
 }
 - (void)testMinCoins {
     NSArray *arr = @[@1,@2,@5];
