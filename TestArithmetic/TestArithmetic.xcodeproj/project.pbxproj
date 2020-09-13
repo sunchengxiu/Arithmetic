@@ -21,6 +21,7 @@
 		E8981D3D250A1F1F00B4B4F7 /* SCXLengthOfLIS.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D3C250A1F1F00B4B4F7 /* SCXLengthOfLIS.m */; };
 		E8981D40250A2B8A00B4B4F7 /* SCXPalindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D3F250A2B8A00B4B4F7 /* SCXPalindrome.m */; };
 		E8981D43250B4B6C00B4B4F7 /* SCXShortest.m in Sources */ = {isa = PBXBuildFile; fileRef = E8981D42250B4B6C00B4B4F7 /* SCXShortest.m */; };
+		E8B1C703250DC69C00458C9B /* SCXLCS.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B1C702250DC69C00458C9B /* SCXLCS.m */; };
 		E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E4392460582200D81AC1 /* SCXAVLTree.m */; };
 		E8F0689424AB6CE80090829C /* SCXBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689324AB6CE80090829C /* SCXBinaryHeap.m */; };
 		E8F0689924B4AA800090829C /* SCXPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0689824B4AA800090829C /* SCXPriorityQueue.m */; };
@@ -99,6 +100,8 @@
 		E8981D3F250A2B8A00B4B4F7 /* SCXPalindrome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXPalindrome.m; sourceTree = "<group>"; };
 		E8981D41250B4B6C00B4B4F7 /* SCXShortest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXShortest.h; sourceTree = "<group>"; };
 		E8981D42250B4B6C00B4B4F7 /* SCXShortest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXShortest.m; sourceTree = "<group>"; };
+		E8B1C701250DC69C00458C9B /* SCXLCS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXLCS.h; sourceTree = "<group>"; };
+		E8B1C702250DC69C00458C9B /* SCXLCS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXLCS.m; sourceTree = "<group>"; };
 		E8D9E4382460582200D81AC1 /* SCXAVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCXAVLTree.h; sourceTree = "<group>"; };
 		E8D9E4392460582200D81AC1 /* SCXAVLTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCXAVLTree.m; sourceTree = "<group>"; };
 		E8D9E43B2460584200D81AC1 /* SCXBinarySearchTree+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCXBinarySearchTree+Private.h"; sourceTree = "<group>"; };
@@ -261,7 +264,7 @@
 		E8981D30250A0ED800B4B4F7 /* 动态规划 */ = {
 			isa = PBXGroup;
 			children = (
-				E8981D37250A101A00B4B4F7 /* 最长公共子序列 */,
+				E8B1C700250DC68700458C9B /* 最长公共子序列 */,
 				E8981D36250A0F6800B4B4F7 /* 最长上升子序列 */,
 				E8981D35250A0F5800B4B4F7 /* 最大子序列的和 */,
 				E8981D34250A0F5200B4B4F7 /* 换钱 */,
@@ -326,9 +329,11 @@
 			path = "最长上升子序列";
 			sourceTree = "<group>";
 		};
-		E8981D37250A101A00B4B4F7 /* 最长公共子序列 */ = {
+		E8B1C700250DC68700458C9B /* 最长公共子序列 */ = {
 			isa = PBXGroup;
 			children = (
+				E8B1C701250DC69C00458C9B /* SCXLCS.h */,
+				E8B1C702250DC69C00458C9B /* SCXLCS.m */,
 			);
 			path = "最长公共子序列";
 			sourceTree = "<group>";
@@ -746,6 +751,7 @@
 				E8F67552242F32E000F4F8F9 /* SCXBinarySearchTree.m in Sources */,
 				E8F67511242F32A600F4F8F9 /* ViewController.m in Sources */,
 				E8F6750B242F32A600F4F8F9 /* AppDelegate.m in Sources */,
+				E8B1C703250DC69C00458C9B /* SCXLCS.m in Sources */,
 				E8D9E43A2460582200D81AC1 /* SCXAVLTree.m in Sources */,
 				E8F675BA24306ECF00F4F8F9 /* SCXArrayQueue.m in Sources */,
 				E8F068B924BDE27F0090829C /* SCXQuickSoft.m in Sources */,

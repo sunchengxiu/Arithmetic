@@ -29,6 +29,7 @@
 #import "SCXSteps.h"
 
 #import "SCXMinCoins.h"
+#import "SCXLCS.h"
 @interface TestArithmeticTests : XCTestCase<SCXBinaryHeapDelegate,SCXPriorityQueueDelegate>
 
 @end
@@ -46,6 +47,12 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+- (void)testLCS {
+    SCXLCS *lcs = [[SCXLCS alloc] init];
+    int cout = [lcs LCS:@"abcde" str2:@"ace"];
+    XCTAssertEqual(cout, 3);
+    
 }
 - (void)testMinCoins {
     NSArray *arr = @[@1,@2,@5];
